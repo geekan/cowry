@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.vmware.com" xmlns:vmw="http://www.vmware.com">
+<xs:element name="VShieldEdgeConfig">
+<xs:complexType>
+<xs:element name="FirewallConfig" type="FirewallConfig"/>
+</xs:complexType>
+</xs:element>
+<xs:complexType name="FirewallConfig"> 
+<xs:choice>
+<xs:element name="defaultPolicy">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:pattern value="allow|deny"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element> <!--  Request/Response for -->
+<xs:element maxOccurs="unbounded" name="FirewallRule" type="FirewallRule" />                 
+<!--  Request/Response from Client  -->
+<xs:element maxOccurs="unbounded" name="FirewallRuleStats" type="FirewallRuleStats" /> <!--  Response from Client  -->
+<xs:element name="Snapshots" type="Snapshots"/> 
+<!--  Only in Response from Server  -->
+</xs:choice>
+</xs:complexType>
+<xs:complexType name="FirewallRule">
+<xs:sequence>
+<xs:element name="protocol" type="PROTOCOL" />
+<xs:element minOccurs="0" name="icmpType" type="IcmpType" /> 
+<!-- Mandatory only when protocol=icmp -->
+<xs:element name="sourceIpAddress" type="IpInfo" />
+<xs:element minOccurs="0" name="sourcePort" type="PortInfo" />
+<xs:element name="destinationIpAddress" type="IpInfo" />
+<xs:element minOccurs="0" name="destinationPort" type="PortInfo" />
+<xs:element name="direction">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:pattern value="in|out|both"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="action">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:pattern value="allow|deny"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" name="log" type="xs:boolean" />
+<xs:element minOccurs="0" name="ruleId" type="xs:unsignedInt" /> 
+<!-- only in Response from REST server -->
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="FirewallRuleStats">
+<xs:sequence>
+<xs:element name="FirewallRule" type="FirewallRule" />
+<xs:element name="packetCount" type="xs:unsignedInt" />
+<xs:element name="byteCount" type="xs:unsignedInt" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="IpInfo">
+<xs:choice>
+<xs:element name="ipAddress" type="IpOrAny" />
+<xs:element name="IpRange" type="IpRange" />
+</xs:choice>
+</xs:complexType>
+<xs:complexType name="IpRange">
+<xs:sequence>
+<xs:element name="rangeStart" type="IP" />
+<xs:element name="rangeEnd" type="IP" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PortInfo">
+<xs:choice>
+<xs:element name="port" type="PortOrAny" />
+<xs:element name="PortRange" type="PortRange" />
+</xs:choice>
+</xs:complexType>
+<xs:complexType name="PortRange">
+<xs:sequence>
+<xs:element name="rangeStart" type="PORT" />
+<xs:element name="rangeEnd" type="PORT" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="Snapshots">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="timestamp" type="xs:unsignedInt" />
+</xs:sequence>
+</xs:complexType>
+<xs:simpleType name="IP">
+<xs:restriction base="xs:string">
+<xs:pattern value=
+"((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="IpOrAny">
+<xs:restriction base="xs:string">
+<xs:pattern value=
+"(((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9]))|(any)"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="PORT">
+<xs:restriction base="xs:string">
+<xs:pattern value="((6[0-5][0-5][0-3][0-5]|[0-5][0-9]{1,4}|[0-9]{2,4})|[0-9])"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="PortOrAny">
+<xs:restriction base="xs:string">
+<xs:pattern value=
+"((6[0-5][0-5][0-3][0-5]|[0-5][0-9]{1,4}|[0-9]{2,4})|[0-9]|(any))"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="PROTOCOL">
+<xs:restriction base="xs:string">
+<xs:pattern value="tcp|udp|icmp|any"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="IcmpType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="echo-reply"/>
+<xs:enumeration value="destination-unreachable"/>
+<xs:enumeration value="source-quench"/>
+<xs:enumeration value="redirect"/>
+<xs:enumeration value="echo-request"/>
+<xs:enumeration value="router-advertisement"/>
+<xs:enumeration value="router-solicitation"/>
+<xs:enumeration value="time-exceeded"/>
+<xs:enumeration value="parameter-problem"/>
+<xs:enumeration value="timestamp-request"/>
+<xs:enumeration value="timestamp-reply"/>
+<xs:enumeration value="address-mask-request"/>
+<xs:enumeration value="address-mask-reply"/>
+<xs:enumeration value="any"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>
