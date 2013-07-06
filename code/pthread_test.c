@@ -10,7 +10,7 @@ int count = 0;
 struct prodcons {
     pthread_mutex_t lock;
     pthread_cond_t sig[SIG_MAX];
-	int ref;
+    int ref;
 };
 
 struct prodcons buffer;
@@ -21,63 +21,63 @@ int init(struct prodcons *b)
     for (i = 0; i < SIG_MAX; i++) {
         pthread_cond_init(&b->sig[i], NULL);
     }
-	b->ref = 0;
+    b->ref = 0;
 }
 
 void put(struct prodcons *b, int data, int sig)
 {
     while(1) {
         pthread_mutex_lock(&b->lock);
-		b->ref |= (1 << sig);
+        b->ref |= (1 << sig);
         pthread_cond_wait(&b->sig[sig], &b->lock);
-		b->ref &= ~(1 << sig);
+        b->ref &= ~(1 << sig);
         count++;
-		printf("signal: %d data: %d count:%d\n", sig, data, count);
+        printf("signal: %d data: %d count:%d\n", sig, data, count);
         pthread_mutex_unlock(&b->lock);
 
-		int tmp;
-		while( !(tmp = (b->ref & (1 << ((sig + 1) % SIG_MAX)))) )
-			printf("while-tmp:%d\n", tmp);
+        int tmp;
+        while( !(tmp = (b->ref & (1 << ((sig + 1) % SIG_MAX)))) )
+            printf("while-tmp:%d\n", tmp);
         pthread_cond_signal(&b->sig[(sig + 1) % SIG_MAX]);
     }
 }
 
 void producer_put(int x)
 {
-	printf("starting pthread:%d\n", x);
-	put(&buffer, x, x);
-	return;
+    printf("starting pthread:%d\n", x);
+    put(&buffer, x, x);
+    return;
 }
 
 void *producer(void *data)
 {
-	int d = *(int *)data;
-	producer_put(d);
+    int d = *(int *)data;
+    producer_put(d);
     return NULL;
 }
 
 int main(void)
 {
-	int i;
-	int resource[SIG_MAX];
+    int i;
+    int resource[SIG_MAX];
     pthread_t p[SIG_MAX];
     void *retval;
     init(&buffer);
 
-	for (i = 0; i < SIG_MAX; i++) {
-		resource[i] = i;
-		pthread_create(&p[i], NULL, producer, &resource[i]);
-	}
+    for (i = 0; i < SIG_MAX; i++) {
+        resource[i] = i;
+        pthread_create(&p[i], NULL, producer, &resource[i]);
+    }
 
-	printf("Starting %d pthreads...\n"
-		   "Pthreads would print numbers one by one~\n\n", SIG_MAX);
+    printf("Starting %d pthreads...\n"
+           "Pthreads would print numbers one by one~\n\n", SIG_MAX);
     while(buffer.ref != ((1 << SIG_MAX) - 1));
     printf("\nSending signal[0] to trigger a start\n");
-	sleep(1);
+    sleep(1);
     pthread_cond_signal(&buffer.sig[0]);
 
-	for (i = 0; i < SIG_MAX; i++) {
-		pthread_join(p[i], &retval);
-	}
+    for (i = 0; i < SIG_MAX; i++) {
+        pthread_join(p[i], &retval);
+    }
     return 0;
 }
