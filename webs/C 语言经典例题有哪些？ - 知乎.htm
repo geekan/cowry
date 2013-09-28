@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<!-- saved from url=(0054)http://www.zhihu.com/question/19938347/answer/17002111 -->
+<html lang="zh-CN" dropeffect="none" class="no-touch js no-touch no-mobile" style=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<title>C 语言经典例题有哪些？ - 知乎</title>
+
+<meta name="apple-itunes-app" content="app-id=432274380, app-argument=zhihu://answers/17002111">
+
+
+
+
+<meta http-equiv="mobile-agent" content="format=html5;url=http://www.zhihu.com/question/19938347/answer/17002111">
+<link rel="apple-touch-icon-precomposed" href="http://static.zhihu.com/static/img/ios/zhihu(57px).png">
+<link rel="apple-touch-icon-precomposed" href="http://static.zhihu.com/static/img/ios/zhihu(72px).png" sizes="72x72">
+<link rel="apple-touch-icon-precomposed" href="http://static.zhihu.com/static/img/ios/zhihu(114px).png" sizes="114x114">
+
+<link rel="shortcut icon" href="http://static.zhihu.com/static/favicon.ico" type="image/x-icon">
+
+<link rel="search" type="application/opensearchdescription+xml" href="http://static.zhihu.com/static/search.xml" title="知乎">
+<script async="" src="http://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script><script type="text/javascript" async="" src="./C 语言经典例题有哪些？ - 知乎_files/za.js"></script><script>document.documentElement.className += ('ontouchstart' in window) ? ' touch' : ' no-touch'</script>
+
+
+
+
+<link rel="stylesheet" href="./C 语言经典例题有哪些？ - 知乎_files/82cd4d13497557c2ecc5088c4c4ac77a.z.css" type="text/css" media="screen,print">
+
+
+
+
+
+<link rel="stylesheet" href="./C 语言经典例题有哪些？ - 知乎_files/win-chrome-punctuation.css" type="text/css" media="screen,print">
+
+
+<script src="./C 语言经典例题有哪些？ - 知乎_files/modernizr.custom.91502.js"></script>
+<style type="text/css"></style><script id="hp_done_"></script><script></script><script id="hp_same_"></script></head>
+
+<body class="zhi" ryt13969="1">
+<div role="navigation" class="zu-top">
+<div class="zg-wrap" id="zh-top-inner">
+<a href="http://www.zhihu.com/" class="zu-top-link-logo" id="zh-top-link-logo">知乎</a>
+
+<div class="top-nav-profile">
+<a href="http://www.zhihu.com/people/wu-cheng-lin" class="zu-top-nav-userinfo " id=":0" role="button" aria-haspopup="true" aria-activedescendant="">
+<span class="name">吴承霖</span>
+<img class="avatar" src="./C 语言经典例题有哪些？ - 知乎_files/666b0abfc_s.jpg">
+<span id="zh-top-nav-new-pm" class="zg-noti-number zu-top-nav-pm-count" style="visibility:hidden" data-count="0">
+
+</span>
+</a>
+<ul class="top-nav-dropdown" id="top-nav-profile-dropdown" aria-labelledby=":0">
+<li>
+<a href="http://www.zhihu.com/people/wu-cheng-lin" tabindex="-1" id=":1">
+<i class="zg-icon zg-icon-dd-home"></i>我的主页
+</a>
+</li>
+
+<li>
+<a href="http://www.zhihu.com/inbox" tabindex="-1" id=":2">
+<i class="zg-icon zg-icon-dd-pm"></i>私信
+<span id="zh-top-nav-pm-count" class="zu-top-nav-pm-count zg-noti-number" style="visibility:hidden" data-count="0">
+
+</span>
+</a>
+</li>
+<li>
+<a href="http://www.zhihu.com/settings" tabindex="-1" id=":3">
+<i class="zg-icon zg-icon-dd-settings"></i>设置
+</a>
+</li>
+<li>
+<a href="http://www.zhihu.com/logout" tabindex="-1" id=":4">
+<i class="zg-icon zg-icon-dd-logout"></i>退出
+</a>
+</li>
+</ul>
+
+</div>
+
+
+<div role="search" id="zh-top-search" class="zu-top-search">
+<form method="GET" action="http://www.zhihu.com/search" id="zh-top-search-form" class="zu-top-search-form form-with-magnify">
+
+<input type="text" class="zu-top-search-input" id="q" name="q" autocomplete="off" value="" placeholder="搜索话题、问题或人..." aria-haspopup="true">
+<input type="hidden" name="type" value="question">
+<label for="q" class="hide-text">知乎搜索</label>
+<button type="submit" class="magnify-button"><i class="icon icon-magnify-q"></i><span class="hide-text">搜索</span></button>
+</form>
+<button class="zu-top-add-question" id="zu-top-add-question">提问</button>
+</div>
+
+
+
+<div id="zg-top-nav" class="zu-top-nav">
+<ul class="zu-top-nav-ul zg-clear">
+
+<li class="zu-top-nav-li " id="zh-top-home-link">
+<a class="zu-top-nav-link" href="http://www.zhihu.com/" id="zh-top-link-home">首页</a>
+</li>
+<li class="top-nav-topic-selector zu-top-nav-li " id="zh-top-nav-item-topic">
+<a class="zu-top-nav-link" href="http://www.zhihu.com/topic" id="top-nav-dd-topic">话题</a>
+
+</li>
+<li class="zu-top-nav-li ">
+<a class="zu-top-nav-link" href="http://www.zhihu.com/explore">发现</a>
+</li>
+
+<li class="top-nav-noti zu-top-nav-li ">
+<a class="zu-top-nav-link" href="javascript:void(0);" id="zh-top-nav-count-wrap"><span class="mobi-arrow"></span>消息<span id="zh-top-nav-count" class="zu-top-nav-count zg-noti-number" style="display: none;">0</span></a>
+</li>
+
+
+
+</ul>
+<div class="zu-top-nav-live zg-r5px" id="zh-top-nav-live" style="display:none">
+<div class="zu-top-nav-live-inner zg-r5px">
+<div class="zu-top-live-icon">&nbsp;</div>
+<ul class="zu-home-noti-inner"></ul>
+<a href="http://www.zhihu.com/notifications" id="zh-top-nav-btn-view-all" class="zg-btn-blue zg-right" style="font-size:12px">查看所有</a>
+<a href="javascript:;" class="zg-btn-white zg-r3px" id="zh-top-nav-btn-hide">知道了</a>
+</div>
+</div>
+<div class="zu-top-nav-live zu-noti7-popup zg-r5px" id="zh-top-nav-live-new">
+<div class="zu-top-nav-live-inner zg-r5px">
+<div class="zu-top-live-icon">&nbsp;</div>
+<div class="zu-home-noti-inner zg-clear" id="zh-top-nav-live-new-inner">
+<div class="zm-noti7-popup-tab-container">
+<a class="zm-noti7-popup-tab-item message" href="javascript:;">
+<span class="icon">消息</span>
+<span class="new-noti" style="display: none;">new</span>
+</a>
+<a class="zm-noti7-popup-tab-item user" href="javascript:;">
+<span class="icon">用户</span>
+<span class="new-noti" style="display: none;">new</span>
+</a>
+<a class="zm-noti7-popup-tab-item thanks" href="javascript:;">
+<span class="icon">赞同和感谢</span>
+<span class="new-noti" style="display: none;">new</span>
+</a>
+</div>
+</div>
+<div class="zm-noti7-frame-border top"></div>
+<div class="zm-noti7-frame">
+<div class="zm-noti7-content zh-scroller" style="position: relative; overflow: hidden;"><div class="zh-scroller-inner" style="height: 100%; width: 150%; overflow: auto;"><div class="zh-scroller-content" style="position: static; display: block; visibility: visible; overflow: hidden; width: 315px; min-height: 100%;">
+<div class="zm-noti7-content-inner">
+<div class="zm-noti7-popup-refresh" style="display:none;">
+<img class="noti-spinner" src="./C 语言经典例题有哪些？ - 知乎_files/spinner2.gif">
+</div>
+<div class="zm-noti7-content-body">
+<div class="zm-noti7-popup-loading">
+<img class="noti-spinner" src="./C 语言经典例题有哪些？ - 知乎_files/noti-loading.gif">
+</div>
+</div>
+</div>
+</div></div><div class="zh-scroller-bar-container" style="position: absolute; right: 1px; top: 0px; height: 98px; width: 6px; background-color: rgb(102, 102, 102); border: 1px solid rgb(68, 68, 68); opacity: 0; cursor: default; border-top-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; border-bottom-left-radius: 2px; -webkit-user-select: none; background-position: initial initial; background-repeat: initial initial;"><div style="-webkit-user-select: none;"></div></div><div class="zh-scroller-bar" style="position: absolute; right: 2px; top: 2px; opacity: 0.5; background-color: rgb(0, 0, 0); width: 6px; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; cursor: default; -webkit-user-select: none; display: none; background-position: initial initial; background-repeat: initial initial;"></div></div>
+<div class="zm-noti7-content zh-scroller" style="display: none; position: relative; overflow: hidden;"><div class="zh-scroller-inner" style="height: 100%; width: 150%; overflow: auto;"><div class="zh-scroller-content" style="position: static; display: block; visibility: visible; overflow: hidden; width: 315px; min-height: 100%;">
+<div class="zm-noti7-content-inner">
+<div class="zm-noti7-popup-refresh" style="display:none;">
+<img class="noti-spinner" src="./C 语言经典例题有哪些？ - 知乎_files/spinner2.gif">
+</div>
+<div class="zm-noti7-content-body">
+<div class="zm-noti7-popup-loading">
+<img class="noti-spinner" src="./C 语言经典例题有哪些？ - 知乎_files/noti-loading.gif">
+</div>
+</div>
+</div>
+</div></div><div class="zh-scroller-bar-container" style="position: absolute; right: 1px; top: 0px; height: 98px; width: 6px; background-color: rgb(102, 102, 102); border: 1px solid rgb(68, 68, 68); opacity: 0; cursor: default; border-top-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; border-bottom-left-radius: 2px; -webkit-user-select: none; background-position: initial initial; background-repeat: initial initial;"><div style="-webkit-user-select: none;"></div></div><div class="zh-scroller-bar" style="position: absolute; right: 2px; top: 2px; opacity: 0.5; background-color: rgb(0, 0, 0); width: 6px; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; cursor: default; -webkit-user-select: none; display: none; background-position: initial initial; background-repeat: initial initial;"></div></div>
+<div class="zm-noti7-content zh-scroller" style="display: none; position: relative; overflow: hidden;"><div class="zh-scroller-inner" style="height: 100%; width: 150%; overflow: auto;"><div class="zh-scroller-content" style="position: static; display: block; visibility: visible; overflow: hidden; width: 315px; min-height: 100%;">
+<div class="zm-noti7-content-inner">
+<div class="zm-noti7-popup-refresh" style="display:none;">
+<img class="noti-spinner" src="./C 语言经典例题有哪些？ - 知乎_files/spinner2.gif">
+</div>
+<div class="zm-noti7-content-body">
+<div class="zm-noti7-popup-loading">
+<img class="noti-spinner" src="./C 语言经典例题有哪些？ - 知乎_files/noti-loading.gif">
+</div>
+</div>
+</div>
+</div></div><div class="zh-scroller-bar-container" style="position: absolute; right: 1px; top: 0px; height: 98px; width: 6px; background-color: rgb(102, 102, 102); border: 1px solid rgb(68, 68, 68); opacity: 0; cursor: default; border-top-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; border-bottom-left-radius: 2px; -webkit-user-select: none; background-position: initial initial; background-repeat: initial initial;"><div style="-webkit-user-select: none;"></div></div><div class="zh-scroller-bar" style="position: absolute; right: 2px; top: 2px; opacity: 0.5; background-color: rgb(0, 0, 0); width: 6px; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; cursor: default; -webkit-user-select: none; display: none; background-position: initial initial; background-repeat: initial initial;"></div></div>
+</div>
+<div class="zm-noti7-frame-border bottom"></div>
+<div class="zm-noti7-popup-footer">
+<a href="http://www.zhihu.com/notifications" class="zm-noti7-popup-footer-all zg-right">查看全部 »</a>
+<a href="http://www.zhihu.com/settings/notify" class="zm-noti7-popup-footer-set" title="通知设置"><i class="zg-icon zg-icon-settings"></i></a>
+</div>
+</div>
+</div>
+
+</div>
+
+
+</div>
+</div>
+
+<div class="zu-global-notify" id="zh-global-message" style="display:none">
+<div class="zg-wrap">
+<div class="zu-global-nitify-inner">
+<a class="zu-global-notify-close" href="javascript:;" title="关闭" name="close">x</a>
+<span class="zu-global-notify-icon"></span>
+<span class="zu-global-notify-msg"></span>
+</div>
+</div>
+</div>
+
+
+
+
+<div class="zg-warn-message" id="zh-question-redirect-info" style="display:none"></div>
+<div class="zg-wrap zu-main" id="zh-single-answer-page" role="main">
+<div class="zu-main-content">
+<div class="zu-main-content-inner" id="zh-single-question">
+
+
+<div class="zm-tag-editor zg-section">
+<div class="zm-tag-editor-labels zg-clear">
+
+<a class="zm-item-tag" href="http://www.zhihu.com/topic/19554151" data-tip="t$b$19554151" data-token="19554151" data-topicid="1309">
+调查类问题
+</a>
+
+<a class="zm-item-tag" href="http://www.zhihu.com/topic/19561633" data-tip="t$b$19561633" data-token="19561633" data-topicid="3807">
+C（编程语言）
+</a>
+
+</div>
+</div>
+<div id="zh-question-title">
+
+<h2 class="zm-item-title zm-editable-content">
+
+<a href="http://www.zhihu.com/question/19938347">C 语言经典例题有哪些？</a>
+
+</h2>
+</div>
+<div id="zh-question-detail" class="zm-item-rich-text" data-resourceid="155376" data-action="/question/detail">
+
+<div class="zm-editable-content">我想学习一些题目</div>
+
+
+</div>
+<div class="zm-item-meta zm-item-comment-el clearfix" id="zh-question-meta-wrap">
+
+<a href="javascript:;" name="report-question" class="report zg-right">
+<i class="z-icon-no-help"></i>举报</a>
+
+<a href="javascript:;" name="addcomment" class="toggle-comment meta-item">
+<i class="z-icon-comment"></i>2 条评论
+</a>
+<a href="javascript:;" name="share" class="share meta-item">
+<i class="z-icon-share"></i>分享
+</a>
+
+
+<span class="zg-bull">•</span>
+<a href="javascript:;" name="invite" class="meta-item">邀请回答</a>
+
+
+
+
+<div class="panel-container"><div style="display: none;" class="question-invite-panel"></div>
+
+
+
+
+<div class="zm-comment-box" style="display: none;"></div></div>
+</div>
+<div class="zh-question-answer-summary-wrap zm-item-rich-text" id="zh-question-answer-summary-wrap" style="display:none;">
+<h3>
+<a href="http://www.zhihu.com/question/20014415" target="_blank" class="zg-right zg-link-litblue" style="font-weight:normal">什么是答案总结？</a>
+答案总结</h3>
+<div id="zh-question-answer-summary" class="zg-section" data-resourceid="155376" data-action="/question/summary">
+
+<div class="zm-editable-content"></div>
+
+</div>
+</div>
+<div class="zh-answers-title">
+<h3><a href="http://www.zhihu.com/question/19938347" class="zg-link-litblue">查看全部 5 个回答</a></h3>
+</div>
+<div id="zh-question-answer-wrap" class="zh-question-answer-wrapper navigable" data-widget="navigable" data-navigable-options="{&quot;items&quot;:&quot;&gt;.zm-item-answer&quot;}">
+<div tabindex="-1" class="zm-item-answer zm-item-answer-owner" data-aid="1934312" data-atoken="17002111" data-collapsed="0" data-created="1368282783" data-deleted="0" data-helpful="1" data-isowner="1" data-score="8.12693" style="">
+<a class="zg-anchor-hidden" name="answer-1934312"></a>
+
+
+<div class="zm-item-vote">
+<a name="expand" class="zm-item-vote-count" href="javascript:;" data-votecount="4">4</a>
+</div>
+
+<div class="answer-head">
+<div class="zm-item-answer-author-info">
+<h3 class="zm-item-answer-author-wrap">
+
+
+<a data-tip="p$t$wu-cheng-lin" class="zm-item-link-avatar" href="http://www.zhihu.com/people/wu-cheng-lin">
+<img src="./C 语言经典例题有哪些？ - 知乎_files/666b0abfc_s.jpg" class="zm-list-avatar" data-source="http://p4.zhimg.com/66/6b/666b0abfc_s.jpg">
+</a>
+
+
+
+<a data-tip="p$t$wu-cheng-lin" href="http://www.zhihu.com/people/wu-cheng-lin">吴承霖</a>，<strong title="keep naive" class="zu-question-my-bio">keep naive</strong>
+
+
+<a name="edit" class="zu-edit-button" href="javascript:;"><i class="zu-edit-button-icon"></i>修改话题经验</a></h3></div>
+<div class="zm-item-vote-info " data-votecount="4">
+
+4 票，来自
+<span class="voters">
+<a data-tip="p$t$kurtzhong" href="http://www.zhihu.com/people/kurtzhong" class="zg-link" title="devnull">devnull</a>、<a data-tip="p$t$xiao-jian-ren-71" href="http://www.zhihu.com/people/xiao-jian-ren-71" class="zg-link" title="箫剑仁">箫剑仁</a>、<a data-tip="p$t$skydiver" href="http://www.zhihu.com/people/skydiver" class="zg-link" title="skydiver">skydiver</a>
+</span>
+
+
+<a href="javascript:;" name="more" class="zg-link-gray more"> 更多</a>
+
+
+</div>
+</div>
+<div class="zm-item-rich-text zm-editable-status-normal" data-resourceid="155376" data-action="/answer/content">
+
+<div class="zm-editable-content clearfix" style="">你这个问题有点泛了。<br><br>C语言的题目分为很多种：<br><b>1、</b><b>内部处理的细节</b>，考你对C语言本身的了解，如打印a[1]和1[a]会出现什么结果。<br>        这种题目，往往是面试的时候会问到，但事实上它们用处并不大。一门好的语言，应该不需要coder去理解过多的细节。<br>        C语言的细节是比较多的，我推荐你学习以下几本书：《<a href="http://book.douban.com/subject/3012360/" class=" wrap external" target="_blank" rel="nofollow">C和指针<i class="icon-external"></i></a>》、《<a href="http://book.douban.com/subject/2778632/" class=" wrap external" target="_blank" rel="nofollow">C陷阱与缺陷 : C语言调试指南<i class="icon-external"></i></a>》、《<a href="http://book.douban.com/subject/1240002/" class=" wrap external" target="_blank" rel="nofollow">C Primer Plus<i class="icon-external"></i></a>》以及《<a href="http://book.douban.com/subject/3004255/" class=" wrap external" target="_blank" rel="nofollow">编程之美<i class="icon-external"></i></a>》等。这些书都是公司招聘出题的首选，如果你通读了以上四本书，基本这类题就难不倒你了。<br><br><b>2、</b><b>算法与数据结构</b>，<a href="http://en.wikipedia.org/wiki/Online_judge" class=" wrap external" target="_blank" rel="nofollow">Online judge<i class="icon-external"></i></a>题目。<br>        这方面，建议很简单：先通读算法与数据结构，然后再在做题中不断加深对算法的理解。书籍推荐最经典的《<a href="http://book.douban.com/subject/1139426/" class=" wrap external" target="_blank" rel="nofollow">数据结构与算法分析<i class="icon-external"></i></a>》、《<a href="http://book.douban.com/subject/1885170/" class=" wrap external" target="_blank" rel="nofollow">算法导论<i class="icon-external"></i></a>》，配合维基，基本上是攻无不克。<br>        事实上，直接用维基学习，辅以google，在我看来是最好的做法。你只要学懂<a href="https://zh.wikipedia.org/wiki/Category:%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" class=" wrap external" target="_blank" rel="nofollow">Category:数据结构<i class="icon-external"></i></a>、<a href="https://zh.wikipedia.org/wiki/Category:%E7%AE%97%E6%B3%95" class=" wrap external" target="_blank" rel="nofollow">Category:算法<i class="icon-external"></i></a>，就可以称为一个算法大牛了。<br>        OJ方面，建议选择<a href="http://poj.org/" class=" wrap external" target="_blank" rel="nofollow">POJ<i class="icon-external"></i></a>，<a href="http://uva.onlinejudge.org/" class=" wrap external" target="_blank" rel="nofollow">UVaOJ<i class="icon-external"></i></a>。<br><br><b>3、</b><b>项目</b>，用C语言写一个项目。（不需要深究算法，也不需要多深的C语言细节了解）<br>        练习C语言最实在，也是最OK的方法是写一个项目。以项目做题，你才会明白哪里有困难需要克服，你又应该学习什么。在写一个项目之前，你得弄清楚三件事：<br><ul><li><b>编译环境</b>，是Linux(GNU C, GCC)，还是Windows(ANSI C, VS2010)。两者之间主要的区分在库函数上， 例如你可以调用前者的snprintf，以及POSIX的<b>正则函数</b>，而在ansi c中是没有的。C语言写100行代码MATLAB只用写一行，大部分原因就是因为C语言没有字符串的正则处理。<br></li><li><b>最基础的C语言知识。</b>你手头必须要有一份C语言库函数列表，包括atoi / bsearch / qsort / fgets等函数，以及它们是在哪些头文件里——你最好能清楚每一个库函数都有什么功能，免得以后费尽心思google。并且<b>你得熟悉数组、指针、链表、枚举等</b>（算法与数据结构的基础）的用法。<br></li><li><b>想要达到的项目成果。</b>你想要写一个文字游戏 / 3D爆炸效果 / 简单的聊天客户端，你必须要有明确的目标，<b>去各个源代码库上寻找最佳实践</b>。被动的等待别人教导是非常非常非常非常非常低效的。</li></ul><br>你该到这些地方寻找最佳实践：<br><ul><li>开源项目全集：<a href="http://www.ohloh.net/" class=" wrap external" target="_blank" rel="nofollow">Ohloh, the open source network<i class="icon-external"></i></a><br></li><li>Github: <a href="https://github.com/" class=" wrap external" target="_blank" rel="nofollow">GitHub  Build software better, together.<i class="icon-external"></i></a><br></li><li>Sourceforge: <a href="http://sourceforge.net/" class=" wrap external" target="_blank" rel="nofollow">SourceForge - Download, Develop and Publish Free Open Source Software<i class="icon-external"></i></a><br></li></ul><br>比如你可以这样搜索：<a href="https://github.com/search?l=c&q=%E8%81%8A%E5%A4%A9&ref=searchresults&type=Code" class=" wrap external" target="_blank" rel="nofollow">Search · 聊天 · GitHub<i class="icon-external"></i></a>，就会发现一堆堆的工程。<br>从网络游戏到聊天软件，应有尽有，随时欢迎你拿来研究。<br><br><b>注：写出一个著名的开源项目，比拿了ACM世界第一屌多了。</b><a href="javascript:;" class="zu-edit-button" name="edit"><i class="zu-edit-button-icon"></i>修改</a></div>
+
+</div>
+<a class="zg-anchor-hidden ac" name="1934312-comment"></a>
+<div class="zm-item-meta zm-item-comment-el answer-actions clearfix">
+
+<span class="answer-date-link-wrap"><a class="answer-date-link meta-item" target="_blank" href="./C 语言经典例题有哪些？ - 知乎_files/C 语言经典例题有哪些？ - 知乎.htm">2013-05-12</a></span>
+<a href="javascript:;" name="addcomment" class=" meta-item toggle-comment">
+<i class="z-icon-comment"></i>添加评论</a>
+
+
+<a href="javascript:;" class="meta-item zu-autohide" name="share"><i class="z-icon-share"></i>分享</a>
+<a href="javascript:;" class="meta-item zu-autohide fav" name="favo"><i class="z-icon-collect"></i>收藏</a>
+
+
+<a href="javascript:;" class="meta-item zu-autohide" name="comment_opt" data-copyable="True"><i class="zg-icon zg-icon-settings"></i>设置</a>
+
+
+
+
+
+<span class="copyright zu-autohide"></span>
+
+<div class="zm-comment-box empty" data-count="0">
+<i class="icon icon-spike zm-comment-bubble" style="display: inline; left: 101px;"></i>
+<a class="zg-anchor-hidden" name="comment-0"></a>
+<div class="zm-comment-list">
+
+</div>
+<div class="zm-comment-form zm-comment-box-ft">
+<div class="zm-comment-editable editable" aria-label="写下你的评论…" contenteditable="true"><p style="color:#999">写下你的评论…</p></div>
+<div class="zm-command zg-clear">
+<a href="http://www.zhihu.com/question/19938347/answer/17002111#" name="addnew" class="zg-right zg-btn-blue">评论</a>
+<a href="http://www.zhihu.com/question/19938347/answer/17002111#" name="closeform" class="zm-command-cancel">取消</a>
+</div>
+<div class="zm-comment-info">
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+<div class="zu-answer-form-disabled-wrap" id="zh-single-answer-disable-wrap" style="display:none"></div>
+</div>
+</div>
+<div class="zu-main-sidebar">
+
+
+
+
+<div class="zm-side-section">
+<div class="zm-side-section-inner" id="zh-question-side-header-wrap">
+<a data-follow="q:m:button" class="zg-unfollow zg-btn-white" href="javascript:;" id="sfb-155376">取消关注</a>
+
+<div class="zg-btn-white goog-inline-block goog-menu-button" id="zh-question-operation-menu" aria-expanded="false" role="button" style="-webkit-user-select: none;" tabindex="0" aria-haspopup="true"><div class="goog-inline-block goog-menu-button-outer-box"><div class="goog-inline-block goog-menu-button-inner-box"><div class="goog-inline-block goog-menu-button-caption"><i class="zg-icon-dropdown-menu zg-icon"></i><b class="hide-text">设置</b></div><div class="goog-inline-block goog-menu-button-dropdown">&nbsp;</div></div></div></div>
+
+<div class="zh-question-followers-sidebar">
+<div class="zg-gray-normal">
+
+<a href="http://www.zhihu.com/question/19938347/followers"><strong>17</strong></a>
+人关注该问题
+
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="zm-side-section sidebar-author-info clearfix">
+<div class="zm-side-section-inner" id="js-sidebar-author-info">
+<h3>关于作者</h3>
+<div class="zm-profile-card zm-profile-section-item zg-clear">
+<div class="zg-right">
+&nbsp;
+</div>
+<a title="吴承霖" data-tip="p$t$wu-cheng-lin" class="zm-item-link-avatar" href="http://www.zhihu.com/people/wu-cheng-lin">
+<img src="./C 语言经典例题有哪些？ - 知乎_files/666b0abfc_m.jpg" class="zm-item-img-avatar">
+</a>
+<div class="zm-list-content-medium">
+<h2 class="zm-list-content-title"><a data-tip="p$t$wu-cheng-lin" href="http://www.zhihu.com/people/wu-cheng-lin" class="zg-link" title="吴承霖">吴承霖</a></h2>
+
+<div class="zg-big-gray">keep naive</div>
+<div class="details zg-gray">
+<a target="_blank" href="http://www.zhihu.com/people/wu-cheng-lin/followers" class="zg-link-gray-normal">6 关注者</a>
+/
+<a target="_blank" href="http://www.zhihu.com/people/wu-cheng-lin/asks" class="zg-link-gray-normal">0 提问</a>
+/
+<a target="_blank" href="http://www.zhihu.com/people/wu-cheng-lin/answers" class="zg-link-gray-normal">21 回答</a>
+/
+<a target="_blank" href="http://www.zhihu.com/people/wu-cheng-lin" class="zg-link-gray-normal">18 赞同</a>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="zm-side-section">
+<div class="zm-side-section-inner">
+<h3>分享答案</h3>
+<div id="zh-question-webshare-container" data-type="a" data-id="1934312" data-url="/answer/17002111" class="zh-question-webshare-links clearfix">
+<a href="javascript:;" name="sina"><i class="zg-icon zg-icon-webshare-weibo"></i>微博</a>
+
+<a href="javascript:;" name="letter"><i class="zg-icon zg-icon-webshare-letter"></i>站内私信</a>
+</div>
+<div style="display:none">
+<div id="zh-webshare-dialog" class="zh-webshare-dialog">
+<ul class="zm-common-nav-bar zg-clear">
+<li class="zm-common-nav-bar-item">
+<a href="javascript:;" class="zm-common-nav-bar-link zm-common-nav-bar-current-light" id="tb-webshare-sina">微博分享</a>
+</li>
+
+<li class="zm-common-nav-bar-item">
+<a href="javascript:;" class="zm-common-nav-bar-link" id="tb-webshare-letter">站内信分享</a>
+</li>
+</ul>
+<div class="zm-tab-content weibo-panel" id="tb-webshare-sina-content">
+<div class="zg-section">
+<label>
+<input data-bindurl="/oauth/auth/sina?next=/oauth/callback" class="sina-checkbox" type="checkbox">
+<span class="zg-ico-sina"></span> 新浪微博</label>
+<label>
+<input data-bindurl="/oauth/auth/qq?next=/oauth/callback" class="qq-checkbox" type="checkbox">
+<span class="zg-ico-qq"></span> 腾讯微博</label>
+</div>
+<div class="zg-section">
+<div class="zg-form-text-input">
+<textarea style="width:100%" id="zh-webshare-sina-pm"></textarea>
+</div>
+</div>
+<div class="zm-command">
+<div class="zm-item-meta zg-left">
+<span id="zg-webshare-sina-counter">还可以输入 140字</span>
+</div>
+<a class="zm-command-cancel" name="cancel" href="javascript:;">取消</a>
+<a class="zg-btn-blue weibo-share-button" name="send_sina" href="javascript:;">发布</a>
+</div>
+</div>
+<div class="zm-tab-content" id="tb-webshare-mail-content" style="display: none;">
+<dl class="zm-form-table zm-form-table-medium">
+<dt class="zm-form-table-head zm-form-table-head-align-middle">
+<label for="user-name" class="zg-medium-gray">收件人：</label>
+</dt>
+<dd class="zm-form-table-field">
+<input class="zg-form-text-input" type="email" id="zh-webshare-mail-reciiver">
+</dd>
+<dt class="zm-form-table-head zm-form-table-head-align-middle">
+<label for="zh-webshare-mail-content" class="zg-medium-gray">内容：</label>
+</dt>
+<dd class="zm-form-table-field">
+<div class="zg-form-text-input">
+<textarea style="width:100%" id="zh-webshare-mail-content"></textarea>
+</div>
+</dd>
+</dl>
+<div class="zm-command">
+<a class="zm-command-cancel" name="cancel" href="javascript:;">取消</a>
+<a class="zg-r3px zg-btn-blue" name="send_mail" href="javascript:;">发送</a>
+</div>
+</div>
+<div id="tb-webshare-letter-content" class="zm-tab-content" style="display: none;"></div>
+</div>
+</div>
+
+</div>
+</div>
+<div class="zm-side-section">
+<div class="zm-side-section-inner">
+<h3>被收藏 <a href="http://www.zhihu.com/question/19938347/answer/17002111/collections">3</a> 次</h3>
+<div id="zh-fav-list-side-related">
+
+<div class="zm-item" id="mi-1354464945">
+<h2 class="zm-item-title ">
+<a href="http://www.zhihu.com/collection/19774166">Useful</a>
+</h2>
+<div class="zm-item-meta">
+
+<a href="http://www.zhihu.com/people/nan-zhang-85" data-tip="p$t$nan-zhang-85" class="zg-link-litblue"> Nan Zhang </a> 创建
+
+
+<span style="color: #dddddd;">&nbsp;|&nbsp;</span>
+<a class="zg-link-gray" href="http://www.zhihu.com/collection/19774166/followers">1 人关注</a>
+
+</div>
+</div>
+
+<div class="zm-item" id="mi-1350810144">
+<h2 class="zm-item-title ">
+<a href="http://www.zhihu.com/collection/19730187">泥濠，世界。</a>
+</h2>
+<div class="zm-item-meta">
+
+<a href="http://www.zhihu.com/people/neartan" data-tip="p$t$neartan" class="zg-link-litblue"> NearTan </a> 创建
+
+
+<span style="color: #dddddd;">&nbsp;|&nbsp;</span>
+<a class="zg-link-gray" href="http://www.zhihu.com/collection/19730187/followers">0 人关注</a>
+
+</div>
+</div>
+
+<div class="zm-item" id="mi-1368042015">
+<h2 class="zm-item-title ">
+<a href="http://www.zhihu.com/collection/20138375">兴趣</a>
+</h2>
+<div class="zm-item-meta">
+
+<a href="http://www.zhihu.com/people/liu-cheng-98" data-tip="p$t$liu-cheng-98" class="zg-link-litblue"> 刘城 </a> 创建
+
+
+<span style="color: #dddddd;">&nbsp;|&nbsp;</span>
+<a class="zg-link-gray" href="http://www.zhihu.com/collection/20138375/followers">0 人关注</a>
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+
+<div class="zm-side-section zh-answer-status">
+<div class="zm-side-section-inner">
+<h3>答案状态</h3>
+<p>
+
+最后编辑于
+
+<span class="time">2013-05-12</span>
+
+<span class="zg-bull">•</span>
+<a href="http://www.zhihu.com/question/19938347/log/answers">查看回答日志</a>
+
+</p>
+<p>
+所属问题被浏览 <strong>432</strong> 次
+</p>
+<p class="copyright">
+
+<a href="http://www.zhihu.com/terms#sec-licence"><i class="icon icon-copyable"></i>作者保留所有权利</a>
+
+</p>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+<div class="zg-clear"></div>
+<div class="mention-popup" style="display: none;"><div class="writing-bg"><input aria-haspopup="true" autocomplete="off"></div><div class="tip">想用 @ 提到谁？</div></div></div>
+
+
+<div id="zh-footer" class="zu-footer">
+<div class="zg-wrap zu-footer-inner">
+<div class="zg-left">
+<a href="http://www.zhihu.com/read" class="zg-link-gray-14">知乎阅读</a>
+</div>
+<a href="http://www.zhihu.com/question/19581624" target="_blank" class="zg-link-gray-14">知乎指南</a>
+<span class="zg-bull">•</span>
+<a href="javascript:;" class="zg-link-gray-14 zg-report" id="zh-report">建议反馈</a>
+<div style="display:none;" id="zh-report-content">
+<select class="zg-editor-type zg-right">
+<option value="help">使用帮助 </option>
+<option value="bug">问题反馈</option>
+<option value="suggest">功能建议</option>
+</select>
+<div class="zg-report-title">
+<span class="zg-gray-darker">请填写你的反馈内容</span>
+<span class="zg-report-msg" style="display:none;">请选择反馈种类：</span>
+</div>
+<div class="zg-editor-simple-wrap zg-form-text-input zg-report-content">
+<textarea class="zg-editor-input" name="content"></textarea>
+</div>
+</div>
+<span class="zg-bull">•</span>
+<a href="http://www.zhihu.com/terms" target="_blank" class="zg-link-gray-14">知乎协议</a>
+<span class="zg-bull">•</span>
+<span>© 2013 知乎</span>
+</div>
+</div>
+<div style="display:none">
+<div id="zh-add-question-wrap" class="zh-add-question-form">
+<div class="js-add-question-splash add-question-splash-page">
+<p>
+知乎是一个真诚、友善、认真、互助的社区<br>
+我们希望每一个疑惑都有解答，好的问题更容易得到好答案 <a href="http://www.zhihu.com/question/19555761">如何提一个好问题？</a>
+</p>
+<p>
+<b>提问应遵循真实、客观、简洁、明确、规范的原则</b><br>
+1、提问应尽可能简洁明了，避免「请问」「有谁知道」「谢谢！」等与问题本身无关的附加语。<br>
+2、应避免使用「为神马」「童鞋」「肿么办」等网络用语。<br>
+3、基于个人判断或传言的问题，在提问时应在补充说明里详细说明原由<br>
+4、避免太宽泛问题，如调查性的问题容易变成每个人都可以发表观点，但对其他人没有价值。<br>
+</p>
+<p>
+<b>知乎禁止这些提问</b><br>
+1、和已有问题完全重复的问题，<b>为避免重复，提问前可以先进行搜索</b><br>
+2、招聘 / 求职、交易 / 合作、寻人 / 征友、召集 / 赠送、求码类内容<br>
+3、投票类问题。例如：你支持方舟子还是韩寒？<br>
+4、作业或其他希望代为完成个人任务类的内容，以及针对个人具体病情的求医问药类问题<br>
+完整的提问建议可查看 <a href="http://www.zhihu.com/question/19806261">知乎的提问规范有哪些？</a><br>
+</p>
+<div class="before-ask-form">
+<b>提问前请先搜索</b>
+<div style="position:relative;margin-top:18px;">
+<input type="text" class="zg-form-text-input" id="js-before-ask" placeholder="请输入你的问题">
+</div>
+</div>
+</div>
+<form class="js-add-question-form">
+<div class="zg-section-big clearfix">
+<div id="zm-modal-dialog-info-wrapper"></div>
+<div style="display: none;position: relative;" id="zm-modal-dialog-warnmsg-wrapper"><div class="zm-modal-dialog-warnmsg zm-modal-dialog-guide-warn-message zg-r5px"></div>
+<a name="close" title="关闭" href="javascript:;" class="zu-global-notify-close" style="display:none">x</a>
+<span class="zm-modal-dialog-guide-title-msg"></span>
+</div>
+<div class="zg-form-text-input add-question-title-form" style="position: relative;">
+<textarea class="zg-editor-input" title="在这里输入问题" id="zh-question-suggest-title-content"></textarea>
+</div>
+<span id="js-title-length-err-msg" class="title-length-err-msg zg-right"></span>
+<div id="zh-question-suggest-ac-wrap" class="question-suggest-ac-wrap"></div>
+</div>
+<div class="zg-section-big">
+<div style="display: none;position: relative;" class="zm-modal-dialog-warnmsg-wrapper">
+<div class="zm-modal-dialog-warnmsg zm-modal-dialog-guide-warn-message zg-r5px"></div>
+<a name="close" title="关闭" href="javascript:;" class="zu-global-notify-close" style="display:none">x</a>
+<span class="zm-modal-dialog-guide-title-msg"></span>
+</div>
+<div class="add-question-section-title">
+
+<span class="zg-right extra-editor-toolbar">
+<div class="js-toggle-editor-toolbar"><i class="z-ico-textedit"></i></div>
+<div class="js-editor-add-pic"><i class="tr-inline-icon tr-image"></i></div>
+<div class="js-editor-add-video"><i class="tr-inline-icon tr-video"></i></div>
+</span>
+
+问题说明（可选）：
+<span id="zh-question-form-detail-err"></span>
+</div>
+<div id="zh-question-suggest-detail-container">
+<div class="zm-editable-content" data-disabled="1"></div>
+</div>
+</div>
+<div class="zm-add-question-form-topic-wrap">
+<div class="add-question-section-title">
+
+<span class="zg-gray zg-right">话题越精准，越容易让领域专业人士看到你的问题</span>
+
+选择话题：
+<span id="zh-question-form-tag-err"></span>
+</div>
+<div style="" id="zh-question-suggest-topic-container" class="zm-tag-editor zg-section">
+<div class="zm-tag-editor-labels"></div>
+<div id="zh-question-suggest-autocomplete-container"></div>
+</div>
+</div>
+<div class="zm-command">
+<label class="zm-question-form-hide-in-about-question-el zg-left">
+<input type="checkbox" value="1" class="zg-addq-isanon">匿名
+<span class="zm-question-form-split">&nbsp;</span>
+</label>
+<div class="zg-left zm-add-question-form-sns-wrap">
+<span>分享到</span>
+</div>
+<a href="javascript:;" name="cancel" class="zm-command-cancel">取消</a>
+<a href="javascript:;" name="addq" class="zg-r5px zu-question-form-add zg-btn-blue">发布</a>
+<a href="" name="jumpq" class="zg-r5px zg-btn-blue zu-question-form-jump" style="display:none;">查看问题</a>
+</div>
+</form>
+</div>
+</div>
+
+
+
+<script>var DZMT = DZMT || [];
+
+DZMT.push(['form_key', "82028866-942508402397518031337275441528728929139378152153"]);
+DZMT.push([ 'current_user', ["\u5434\u627f\u9716", "wu-cheng-lin", "http://p4.zhimg.com/66/6b/666b0abfc_s.jpg", "f60370c31b85be67f07cd230d3e8f04e", "keep naive", 1, 0, 1, "alexapollo0@gmail.com", "http://mail.google.com", 1, false] ]);
+
+DZMT.push(['env', ["zhihu.com", "comet.zhihu.com", false, false ]]);
+DZMT.push(['permissions', []])
+
+
+DZMT.push(["current_question", [155376,0,0,null,0,0,0,0,false,true,true,19938347,0,[],[],"normal"] ]);
+DZMT.push(["disabled_components", ["question_op_redirect"]]);
+
+</script>
+
+<script src="./C 语言经典例题有哪些？ - 知乎_files/b7c072a965ed8a56e240f9b8ca469334.extern_src.min.js"></script>
+<script src="./C 语言经典例题有哪些？ - 知乎_files/c557c32a182839c09f4664f25d381814.app_core.js"></script>
+<script src="./C 语言经典例题有哪些？ - 知乎_files/de12efa0237da1fc3d1163a8742ad912.sign.js"></script>
+
+<script>
+ZH.main();
+ZH.ill();
+
+</script>
+
+<script src="./C 语言经典例题有哪些？ - 知乎_files/3cc12d4228692f384814563dd451d8e1.app.js"></script>
+<script src="./C 语言经典例题有哪些？ - 知乎_files/561fe1acccdd289d8f4e88f7e2a2228b.rich_text_editor.js"></script>
+
+<script>
+
+
+ZH.entrySA();
+
+
+</script><div></div>
+
+
+<script>
+
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-20961733-1']);
+_gaq.push(['_setDomainName', '.zhihu.com']);
+// (NEW) SEO: add new search engines
+_gaq.push(['_addOrganic', 'baidu', 'word']);
+_gaq.push(['_addOrganic', 'baidu', 'wd']);
+_gaq.push(['_addOrganic', 'sogou', 'query']);
+_gaq.push(['_addOrganic', 'so.360.cn', 'q']);
+_gaq.push(['_addOrganic', 'so.com', 'q']);
+_gaq.push(['_addOrganic', 'soso', 'w']);
+_gaq.push(['_addOrganic', 'google', 'q']);
+// (NEW) SEO: exclude direct search terms
+_gaq.push(['_addIgnoredOrganic', '知乎']);
+_gaq.push(['_addIgnoredOrganic', '知乎网']);
+_gaq.push(['_addIgnoredOrganic', 'zhihu']);
+_gaq.push(['_addIgnoredOrganic', 'zhihu.com']);
+_gaq.push(['_addIgnoredOrganic', 'www.zhihu.com']);
+
+var user_attr = [ '1', '0', '0', '-', '1' ]
+// slot 1
+_gaq.push(['_setVar', user_attr.join('')]);
+_gaq.push(['_setCustomVar', 1, 'user_attr', user_attr.join(''), 3]);
+
+// slot 2
+_gaq.push(['_setCustomVar', 2, 'registration_date', 20130506, 1]);
+var current_user_created = 1367839277000
+
+// slot 3
+var qc1_match = document.cookie.match(/q_c1=(\w+)\|(\w+)\|(\d+)/);
+var uutime = 9000000000000; // year 2255
+if (qc1_match) {
+uutime = +qc1_match[3];
+}
+var entry_date = Math.min(uutime, current_user_created, 1374815226000)
+_gaq.push(['_setCustomVar', 3, 'entry_date', moment(entry_date).format('YYYYMMDD'), 1]);
+_gaq.push(['_setCustomVar', 4, 'abtest_group', "------------------------------", 3]);
+_gaq.push(['_trackPageview']);
+
+var _zao = _zao || { uid: 0 };
+
+_zao.uid = 'f60370c31b85be67f07cd230d3e8f04e';
+
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+var za = document.createElement('script'); za.type = 'text/javascript'; za.async = true;
+za.src = 'http://static.analytics.zhihu.com/static/za.js?v=4';
+s.parentNode.insertBefore(za, s);
+})();
+
+</script>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','__ga');
+__ga('create', 'UA-20961733-3', {'cookieDomain': 'zhihu.com'});
+__ga('send', 'pageview');
+</script>
+
+<input type="hidden" name="_xsrf" value="e85d062ee6e54b96a03f91aa07b3b4b3">
+
+<div class="zh-backtotop" style="display:none"><div class="arrow"></div><div class="stick"></div></div><div id="zh-tooltip"></div><div id="zh-global-spinner" style="display: none;">加载中…</div></body></html>
