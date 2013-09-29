@@ -1,8 +1,10 @@
 # -*- coding: gbk -*-
 
 import re
-import os
+import os.path
 import urllib.request
+import threading
+import time
 
 urlopen = urllib.request.urlopen
 request = urllib.request.Request
@@ -17,14 +19,20 @@ def get_valid_filename(filename):
     return "".join(c for c in filename if c.isalnum() or c in keepcharacters).rstrip()
 
 def get_content_from_url(url):
+    attempts = 0
     content = ''
-    try:
-        content = urlopen(url).read().decode('gbk', 'ignore')
-    except Exception as e:
-        print(e)
+    while attempts < 10:
+        try:
+            content = urlopen(url).read().decode('gbk', 'ignore')
+            break
+        except Exception as e:
+            attempts += 1
+            print(e)
     return content
 
 def down_link(url, filename):
+    if os.path.exists(filename): #TODO MD5
+        return
     headers={'User-Agent':'Mozilla/5.0 (Windows NT 5.1; rv:22.0) Gecko/20100101 Firefox/22.0'}
     req = request(url, headers = headers)
     try:
@@ -59,6 +67,7 @@ def down_imgs_from_url(url):
     return
 
 
+
 def down_link_imgs_torrents(topic):
     print('GET:', topic)
     dirname = get_valid_filename(topic['title'])
@@ -85,7 +94,9 @@ def down_link_imgs_torrents(topic):
 def get_links_from_page(url):
     print('GET:' + url)
     
-    content = urlopen(url).read().decode('gbk')
+    content = get_content_from_url(url)
+    if content == '':
+        return
     #print(content)
     topics_html = re.findall('<tbody.*?normalthread.*?>.*?</tbody>', content, re.M | re.S)
     #print(topics_html)
@@ -109,6 +120,20 @@ def install_proxy():
     urllib.request.install_opener(opener)
     return
 
+class ThreadUrl(threading.Thread):
+    url_base = forum_id = begin = end = None
+    def __init__(self, url_base, forum_id, begin, end):
+        threading.Thread.__init__(self)
+        self.url_base = url_base
+        self.forum_id = forum_id
+        self.begin = begin
+        self.end = end
+
+    def run(self):
+        for i in range(self.begin, self.end):
+            url = self.url_base.format(self.forum_id, i)
+            get_links_from_page(url)
+
 def test_main():
     install_proxy()
     
@@ -125,10 +150,16 @@ def main():
     wtfdir = 'wtf'
     os.makedirs(wtfdir, exist_ok = True)
     os.chdir(wtfdir)
+    end = 4
     for forum_id in forum_ids.values(): #or using thread
-        for page in range(5,1000):
-            #start threads
-            get_links_from_page(base_forum_url.format(forum_id, page))
+        for page in range(50,400,25):
+            begin = end + 1
+            end = page
+            #t = ThreadUrl(base_forum_url.format(forum_id, page))
+            t = ThreadUrl(base_forum_url, forum_id, begin, end)
+            t.start()
 
+start = time.time()
 if __name__ == '__main__':
     main()
+print("Elapsed Time:", (time.time() - start))
