@@ -18,6 +18,19 @@ def get_valid_filename(filename):
     keepcharacters = (' ','.','_')
     return "".join(c for c in filename if c.isalnum() or c in keepcharacters).rstrip()
 
+def get_data_from_req(req):
+    attempts = 0
+    binary = ''
+    while attempts < 10:
+        try:
+            binary = urlopen(req).read()
+            break
+        except Exception as e:
+            attempts += 1
+            print(e)
+    return binary
+    
+
 def get_content_from_url(url):
     attempts = 0
     content = ''
@@ -31,14 +44,17 @@ def get_content_from_url(url):
     return content
 
 def down_link(url, filename):
-    if os.path.exists(filename): #TODO MD5
+    if os.path.exists(filename) and os.path.getsize(filename) > 0: #TODO MD5
         return
+    #filename = get_valid_filename(filename)
     headers={'User-Agent':'Mozilla/5.0 (Windows NT 5.1; rv:22.0) Gecko/20100101 Firefox/22.0'}
     req = request(url, headers = headers)
     try:
-        u = urlopen(req, timeout = 60)
+        data = get_data_from_req(req)
+        if data is '':
+            return
         f = open(filename, 'wb')
-        f.write(u.read())
+        f.write(data)
         f.close
     except Exception as e:
         print(e)
@@ -60,13 +76,11 @@ def down_imgs_from_url(url):
     st = set(torrents)
     print(imgs, st)
     for img in imgs:
-        down_link(img, dirname + '/' + os.path.basename(img))
+        down_link(img, dirname + '/' + get_valid_filename(os.path.basename(img)))
     for t in st:
-        down_link(base_url + t[0], dirname + '/' + t[1])
+        down_link(base_url + t[0], dirname + '/' + get_valid_filename(t[1]))
 
     return
-
-
 
 def down_link_imgs_torrents(topic):
     print('GET:', topic)
@@ -98,16 +112,26 @@ def get_links_from_page(url):
     if content == '':
         return
     #print(content)
-    topics_html = re.findall('<tbody.*?normalthread.*?>.*?</tbody>', content, re.M | re.S)
+    attempts = 0
+    while attempts < 3:
+        topics_html = re.findall('<tbody.*?normalthread.*?>.*?</tbody>', content, re.M | re.S)
+        if topics_html == '':
+            attempts += 1 # need retry download
+        else:
+            break
     #print(topics_html)
     topics = dict()
     # GET: 1-url 2-title 3-star 4-comment 5-view 6-time
     p = '<span id.*?<a href=\"(?P<url>.*?)\".*?>(?P<title>.*?)</a>.*?<img.*?<td.*?author.*?img.*?>.*?(?P<star>\d+).*?</cite>.*?<td.*?nums\">.*?(?P<comment>\d+).*?<em>(?P<view>\d+).*?lastpost.*?<a href.*?>(?P<time>.*?)</a>'
-    for h in topics_html:
-        gd = re.search(p, h, re.M | re.S).groupdict()
-        gd['url'] = base_url + gd['url']
-        topics[gd['title']] = gd
-        print(topics[gd['title']])
+    
+    try:
+        for h in topics_html:
+            gd = re.search(p, h, re.M | re.S).groupdict()
+            gd['url'] = base_url + gd['url']
+            topics[gd['title']] = gd
+            print(topics[gd['title']])
+    except Exception as e:
+        print(e)
 
     for i in topics:
         down_link_imgs_torrents(topics[i])
@@ -151,15 +175,21 @@ def main():
     os.makedirs(wtfdir, exist_ok = True)
     os.chdir(wtfdir)
     end = 4
+    t = dict()
     for forum_id in forum_ids.values(): #or using thread
-        for page in range(50,400,25):
+        for page in range(50,400,50):
             begin = end + 1
             end = page
             #t = ThreadUrl(base_forum_url.format(forum_id, page))
-            t = ThreadUrl(base_forum_url, forum_id, begin, end)
-            t.start()
+            t[forum_id,page] = ThreadUrl(base_forum_url, forum_id, begin, end)
+            t[forum_id,page].start()
+
+    for forum_id in forum_ids.values(): #or using thread
+        for page in range(50,400,50):
+            t[forum_id,page].join()
 
 start = time.time()
 if __name__ == '__main__':
     main()
+
 print("Elapsed Time:", (time.time() - start))
