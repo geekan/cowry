@@ -2,17 +2,35 @@
 
 import re
 import os.path
-import urllib.request
 import threading
 import time
+
+try:
+    import urllib.request
+    #import urllib.parse
+except ImportError:
+    import urllib
+    urllib.request = __import__('urllib2')
+    urllib.parse = __import__('urlparse')
 
 urlopen = urllib.request.urlopen
 request = urllib.request.Request
 
-base_url = 'http://38.103.161.147/forum/'
+'''
+try:
+    input = raw_input
+except NameError:
+    pass
+
+host = input('input target ip:')
+'''
+
+host = '38.103.161.147'
+base_url = 'http://' + host + '/forum/'
 http_proxy = "http://localhost:8086"
+use_proxy = True
 http_proxys = {'http':http_proxy}
-download_dir = 'dl/'
+wtfdir = 'test'
 
 def get_valid_filename(filename):
     keepcharacters = (' ','.','_')
@@ -43,7 +61,7 @@ def get_content_from_url(url):
             print(e)
     return content
 
-def down_link(url, filename):
+def down_link(url, filename, thresold = 0):
     if os.path.exists(filename) and os.path.getsize(filename) > 0: #TODO MD5
         return
     #filename = get_valid_filename(filename)
@@ -85,7 +103,8 @@ def down_imgs_from_url(url):
 def down_link_imgs_torrents(topic):
     print('GET:', topic)
     dirname = get_valid_filename(topic['title'])
-    os.makedirs(dirname, exist_ok = True)
+    if not os.path.exists(dirname):
+        os.makedirs(dirname)
     
     content = get_content_from_url(topic['url'])
 
@@ -139,6 +158,8 @@ def get_links_from_page(url):
     return topics
 
 def install_proxy():
+    if use_proxy == False:
+        return
     proxy_support = urllib.request.ProxyHandler({"http":http_proxy})
     opener = urllib.request.build_opener(proxy_support)
     urllib.request.install_opener(opener)
@@ -161,23 +182,24 @@ class ThreadUrl(threading.Thread):
 def test_main():
     install_proxy()
     
-    url = 'http://38.103.161.147/forum/thread-4917240-1-1.html'
+    url = base_url + 'thread-4917240-1-1.html'
     down_imgs_from_url(url)
 
-def main():
+def down_imgs_torrents():
     install_proxy()
-    base_forum_url = 'http://38.103.161.147/forum/forum-{0}-{1}.html'
+    base_forum_url = base_url + 'forum-{0}-{1}.html'
     
-    forum_ids = {'Asia Censored' : 230, 'Asia Uncensored' : 143}
+    forum_ids = {'YM' : 230, 'WM' : 143}
     #urls = map(base_forum_url.format, forum_ids.values())
 
-    wtfdir = 'wtf'
-    os.makedirs(wtfdir, exist_ok = True)
+    if not os.path.exists(wtfdir):
+        os.makedirs(wtfdir)
     os.chdir(wtfdir)
-    end = 4
+    end = 0
     t = dict()
+    pages = range(5,40,5)
     for forum_id in forum_ids.values(): #or using thread
-        for page in range(50,400,50):
+        for page in pages:
             begin = end + 1
             end = page
             #t = ThreadUrl(base_forum_url.format(forum_id, page))
@@ -185,8 +207,11 @@ def main():
             t[forum_id,page].start()
 
     for forum_id in forum_ids.values(): #or using thread
-        for page in range(50,400,50):
+        for page in pages:
             t[forum_id,page].join()
+
+def main():
+    down_imgs_torrents()
 
 start = time.time()
 if __name__ == '__main__':
