@@ -1,0 +1,15 @@
+﻿#jquery_panel
+{
+	font-family: tahoma;
+	font-size: 0.9em;
+	width: 180px;
+	border: solid #CECFCE 1px;
+}
+.jquery_panel_title
+{
+	background-color: #EFEBEF;
+}
+.jquery-x-tool
+{
+	background: transparent url(../panel/blue/tool-sprites.gif) no-repeat scroll 0 0;
+}

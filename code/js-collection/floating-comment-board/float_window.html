@@ -1,0 +1,79 @@
+<html>
+<head>
+
+<style type="text/css">
+body {
+	background-color:#FFF;
+	}
+#annoyingAdvert {
+	position:absolute;
+	z-index:2;<!--占据同一位置的对象，显示z-index值大的-->
+	display:none;<!--广告框隐藏-->
+	width:100px;
+	background-color:#FFC;
+	padding:10px;
+	margin:10px;
+	border:5px solid yellow;
+	}
+#closeBox {
+	position: absolute;
+	color:red;
+	font-size:1.5em;
+	top:0;
+	right:0;
+	}
+</style>
+</head>
+<body>
+<div id="annoyingAdvert"> 
+    This is an incredibly annoying ad of the type you might find on some web sites. 
+    <div id="closeBox">&otimes;</div> 
+</div> 
+<p> 
+I am honored to be with you today at your commencement from one of the finest universities in the world. I never graduated form college.
+True be told, this is the closest I’ve ever gotten to a college graduation. Today I wan to tell you
+three stories from my life. That’s it.  No big deal. Just three stories. 
+</p> 
+<p> 
+The first story is about connecting the dots. 
+I dropped out of Reed College after the first 6 months, but then stayed around as a drop-in for 
+another 18 months or so before I really quit. So why did I drop out? 
+It started before I was born.  My biological mother was a young, unwed college graduate student, 
+and she decided to put me up for adoption. She felt very strongly that I should be adopted by 
+college graduates, so everything was all set for me to be adopted at birth by a lawyer and his 
+wife.Except that when I popped out they decided at the last minute that they really wanted a girl.
+So my parents, who were on a waiting list, got a call in the middle of the night asking:”We have an
+unexpected baby boy; do you want him?” They said:”Of course.” My biological mother later found out
+that my mother had never graduated from college and that my father had never graduated from high 
+school. She refused to sign the final adoption papers. She only relented a few months later when 
+my parents promised that I would someday go to college. 
+</p> 
+。。。。。。。
+<body>
+<script type="text/javascript">
+window.onload = initAdvert; 
+function initAdvert(){ 
+    var adBox = "annoyingAdvert"; 
+     
+    document.getElementById(adBox).style.display = "block"; //在加载页面之后显示广告框（之前隐藏）
+    document.getElementById(adBox).onmouseover = slide; //定义事件处理程序，当鼠标放上时移动
+    document.getElementById("closeBox").onclick = function(){//当鼠标点击时关闭（隐藏）广告框 
+        document.getElementById(adBox).style.display = "none";   
+    }    
+} 
+ 
+function slide(){ 
+    var adBox = "annoyingAdvert"; 
+     
+    if(nextPos(adBox) <= (document.body.clientWidth-150)){ 
+        document.getElementById(adBox).style.left= nextPos(adBox) + "px"; 
+        //通过修改style.left属性，实现对象的移动。
+        setTimeout(slide,100); //每100毫秒，重复调用slide（），从而让框一直移动
+    } 
+     
+    function nextPos(elem){ //获取对象的下一个位置
+        return document.getElementById(elem).offsetLeft+1; 
+    } 
+} 
+</script>
+</html>

@@ -1,0 +1,311 @@
+<!------------------------------------>
+<!-- START OF MESSAGE-BOARD SCRIPT -->
+<!------------------------------------>
+
+<!-- START OF STYLE CONFIGURATION -->
+<style>
+a.textcontentstyle{
+	/* Set the font-style of the text */
+	/* ATTENTION: background-color must be set within the script below */
+	font-family:Arial;
+	font-size:10pt;
+	color: #000000;
+	padding:5px;
+	text-decoration:none;
+	font-weight:bold;
+	color:#000000;
+}
+
+.textalignstyle{
+	/* Set the alignement of the text */
+	text-align:center; 	/* Set the horizontal text-alignement (center or left or right) */
+	vertical-align:middle; 	/* Set the vertical text-alignement (middle or top or bottom) */
+}
+
+.textboxstyle{
+	/* Set the attributes for the text-box */
+	/* ATTENTION: width and height must be set within the script below */
+	border-style:solid;
+	border-width:1px;
+	border-color:white;
+
+	/* shadow and rounded corners for Firefox */
+	-moz-box-shadow: 5px 5px 8px #818181;
+	-moz-border-radius-topleft: 25px;
+	-moz-border-radius-bottomright: 25px;
+
+	/* shadow and rounded corners for Safari and Chrome */
+	-webkit-box-shadow: 5px 5px 8px #818181;
+	-webkit-border-top-left-radius: 25px;
+	-webkit-border-bottom-right-radius: 25px;
+
+	/* shadow and rounded corners for Opera */
+	box-shadow: 5px 5px 5px #818181;
+	border-top-left-radius: 25px;
+	border-bottom-right-radius: 25px;
+}
+</style>
+<!-- END OF STYLE CONFIGURATION -->
+
+<script>
+// CREDITS:
+// message-board with a smooth gradient color effect
+// By Peter Gehrig
+// Copyright (c) 2011 Peter Gehrig. All rights reserved.
+// Permission given to use the script provided that this notice remains as is.
+// Additional scripts can be found at http://www.fabulant.com
+
+// IMPORTANT:
+// If you add this script to a script-library or script-archive
+// you have to add a highly visible link to
+// http://www.fabulant.com on the webpage
+// where this script will be featured
+
+var message= [
+
+///////////////////////////////////////////////////////////////////////
+// START OF CONFIGURATION ZONE 
+///////////////////////////////////////////////////////////////////////
+
+// Set your messages and the corresponding links below
+// Add as many messages and links as you like
+{
+text : "Download free fun-scripts now.",
+linkto : "http://www.fabulant.com"
+}, // commra required
+
+{
+text : "Create great JavaScript animations.",
+linkto : "http://www.fabulant.com"
+}, // comma required
+
+{
+text : "Pimp your site with hot JavaScript effects.",
+linkto : "http://www.fabulant.com"
+}, // comma required
+
+{
+text : "And please, please be happy don't worry!",
+linkto : "http://www.fabulant.com"
+} // comma NOT required
+
+]
+
+// Set the width of the textbox (pixels)
+var textboxwidth=400
+
+//Set the height of the textbox (pixels)
+var textboxheight=40
+
+// Select the background-colors below
+// IMPORTANT 1: The script requires three colors at least
+// IMPORTANT 2: The last two colors must be the same as the font-color
+// IMPORTANT 3: The script requires hexadecimal-values! For instance: enter "#FFFFFF" instead of "white"
+var colors=new Array("#FFFFFF","#FFFF00","#FF0000","#000000","#000000")
+
+// Set pause between colors (seconds)
+var pausebetweencolors=1
+
+// Set speed (higher=slower)
+var speed=30
+
+///////////////////////////////////////////////////////////////////////////
+// CONFIGURATION ENDS HERE
+///////////////////////////////////////////////////////////////////////////
+
+// do not edit code below this line
+var i_loopmax=1000
+var pausesteps=30
+var gradient_effect="horizontal"
+var hexc = new Array('0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F')
+var redcol_1
+var redcol_2 
+var redcol_1_b
+var redcol_2_b 
+var greencol_1 
+var greencol_2 
+var greencol_1_b 
+var greencol_2_b
+var bluecol_1 
+var bluecol_2 
+var bluecol_1_b 
+var bluecol_2_b
+ 
+var rgbredfrom
+var rgbgreenfrom
+var rgbbluefrom
+var rgbredto
+var rgbgreento
+var rgbblueto
+var rgbrednow
+var rgbgreennow
+var rgbbluenow
+
+var rgbredfrom_b
+var rgbgreenfrom_b
+var rgbbluefrom_b
+var rgbredto_b
+var rgbgreento_b
+var rgbblueto_b
+var rgbrednow_b
+var rgbgreennow_b
+var rgbbluenow_b
+
+var colorhexafrom
+var colorhexato
+
+var i_step=1
+var i_loop=0
+var i_colorsA=0
+var i_colorsB=1
+var i_colorsC=1
+var i_colorsD=2
+
+var i_message=0
+
+pausebetweencolors*=1000
+
+var browserinfos=navigator.userAgent.toLowerCase();
+var ie4=document.all&&!document.getElementById
+var ie5=document.all&&document.getElementById&&!browserinfos.match(/opera/)
+var opera=browserinfos.indexOf("opera")!=-1
+var chrome=browserinfos.indexOf("chrome")!=-1
+var ff36=browserinfos.indexOf("firefox/3.6") !=-1 || browserinfos.indexOf("firefox/.3.6") !=-1 || browserinfos.indexOf("firefox/0.3.6") || browserinfos.indexOf("firefox/3.7") !=-1 || browserinfos.indexOf("firefox/.3.7") !=-1 || browserinfos.indexOf("firefox/0.3.7") || browserinfos.indexOf("firefox/3.8") !=-1 || browserinfos.indexOf("firefox/.3.8") !=-1 || browserinfos.indexOf("firefox/0.3.8") || browserinfos.indexOf("firefox/3.9") !=-1 || browserinfos.indexOf("firefox/.3.9") !=-1 || browserinfos.indexOf("firefox/0.3.9") || browserinfos.indexOf("firefox/4") !=-1 || browserinfos.indexOf("firefox/.4") !=-1 || browserinfos.indexOf("firefox/0.4") !=-1; 
+
+var ns4=document.layers
+var ns6=document.getElementById&&!document.all&&!browserinfos.match(/opera/)
+
+var browserok=ie4||ie5||ns4||ns6||opera||ff36||chrome
+
+function translateintorgb() {
+
+	var hexa=colors[i_colorsA]
+	var hexared=hexa.substring(1,3)
+	var hexagreen=hexa.substring(3,5)
+	var hexablue=hexa.substring(5,7)
+	rgbredfrom=parseInt("0x"+hexared)
+	rgbgreenfrom=parseInt("0x"+hexagreen)
+	rgbbluefrom=parseInt("0x"+hexablue)
+	rgbrednow=rgbredfrom
+	rgbgreennow=rgbgreenfrom
+	rgbbluenow=rgbbluefrom
+	
+	var hexa=colors[i_colorsB]
+	var hexared=hexa.substring(1,3)
+	var hexagreen=hexa.substring(3,5)
+	var hexablue=hexa.substring(5,7)
+	rgbredto=parseInt("0x"+hexared)
+	rgbgreento=parseInt("0x"+hexagreen)
+	rgbblueto=parseInt("0x"+hexablue)
+	
+	var hexa=colors[i_colorsC]
+	var hexared=hexa.substring(1,3)
+	var hexagreen=hexa.substring(3,5)
+	var hexablue=hexa.substring(5,7)
+	rgbredfrom_b=parseInt("0x"+hexared)
+	rgbgreenfrom_b=parseInt("0x"+hexagreen)
+	rgbbluefrom_b=parseInt("0x"+hexablue)
+	rgbrednow_b=rgbredfrom_b
+	rgbgreennow_b=rgbgreenfrom_b
+	rgbbluenow_b=rgbbluefrom_b
+	
+	var hexa=colors[i_colorsD]
+	var hexared=hexa.substring(1,3)
+	var hexagreen=hexa.substring(3,5)
+	var hexablue=hexa.substring(5,7)
+	rgbredto_b=parseInt("0x"+hexared)
+	rgbgreento_b=parseInt("0x"+hexagreen)
+	rgbblueto_b=parseInt("0x"+hexablue)
+	i_colorsA++
+	i_colorsB++
+	i_colorsC++
+	i_colorsD++
+	if (i_colorsA>=colors.length) {i_colorsA=0}
+	if (i_colorsB>=colors.length) {i_colorsB=0}
+	if (i_colorsC>=colors.length) {
+	i_colorsC=0;
+	i_message++;
+	if (i_message >= message.length) {
+	i_message=0;
+	}
+	document.getElementById("textalign").innerHTML="<a href='"+message[i_message].linkto+"' id='textcontent' class='textcontentstyle'>"+message[i_message].text+"</a>"
+	}
+	if (i_colorsD>=colors.length) {i_colorsD=0}
+	changefromto()
+}
+
+function changefromto() {
+	rgbrednow=rgbrednow-((rgbredfrom-rgbredto)/speed)
+	rgbgreennow=rgbgreennow-((rgbgreenfrom-rgbgreento)/speed)
+	rgbbluenow=rgbbluenow-((rgbbluefrom-rgbblueto)/speed)
+	
+	rgbrednow_b=rgbrednow_b-((rgbredfrom_b-rgbredto_b)/speed)
+	rgbgreennow_b=rgbgreennow_b-((rgbgreenfrom_b-rgbgreento_b)/speed)
+	rgbbluenow_b=rgbbluenow_b-((rgbbluefrom_b-rgbblueto_b)/speed)
+	
+	if (rgbrednow>255) {rgbrednow=255}
+	if (rgbrednow<0) {rgbrednow=0}
+	if (rgbgreennow>255) {rgbgreennow=255}
+	if (rgbgreennow<0) {rgbgreennow=0}
+	if (rgbbluenow>255) {rgbbluenow=255}
+	if (rgbbluenow<0) {rgbbluenow=0}
+	
+	if (rgbrednow_b>255) {rgbrednow_b=255}
+	if (rgbrednow_b<0) {rgbrednow_b=0}
+	if (rgbgreennow_b>255) {rgbgreennow_b=255}
+	if (rgbgreennow_b<0) {rgbgreennow_b=0}
+	if (rgbbluenow_b>255) {rgbbluenow_b=255}
+	if (rgbbluenow_b<0) {rgbbluenow_b=0}
+	
+	if (i_step<=speed) {
+      	redcol_1 = hexc[Math.floor(rgbrednow/16)];
+     	redcol_2 = hexc[Math.floor(rgbrednow)%16];
+	 	greencol_1 = hexc[Math.floor(rgbgreennow/16)];
+      	greencol_2 = hexc[Math.floor(rgbgreennow)%16];
+	  	bluecol_1 = hexc[Math.floor(rgbbluenow/16)];
+      	bluecol_2 = hexc[Math.floor(rgbbluenow)%16];
+		
+		redcol_1_b = hexc[Math.floor(rgbrednow_b/16)];
+     	redcol_2_b = hexc[Math.floor(rgbrednow_b)%16];
+	 	greencol_1_b = hexc[Math.floor(rgbgreennow_b/16)];
+      	greencol_2_b = hexc[Math.floor(rgbgreennow_b)%16];
+	  	bluecol_1_b = hexc[Math.floor(rgbbluenow_b/16)];
+      	bluecol_2_b = hexc[Math.floor(rgbbluenow_b)%16];
+	  	var backcolor="#"+redcol_1+redcol_2+greencol_1+greencol_2+bluecol_1+bluecol_2
+		var backcolor_b="#"+redcol_1_b+redcol_2_b+greencol_1_b+greencol_2_b+bluecol_1_b+bluecol_2_b
+		if (ie5 && gradient_effect!="none") {
+			if (gradient_effect=="horizontal") {var gr_effect=1}
+			if (gradient_effect=="vertical") {var gr_effect=0}
+	  		document.getElementById("textbox").style.filter=
+"progid:DXImageTransform.Microsoft.Gradient(startColorstr="+backcolor+", endColorstr="+backcolor_b+", GradientType="+gr_effect+")"
+		}
+		else if ((ff36==1  || chrome==1)&& gradient_effect!="none") {
+	  		document.getElementById("textbox").style.background="-moz-linear-gradient(left, "+backcolor+","+backcolor_b+")"
+			document.getElementById("textbox").style.background="-webkit-gradient(linear, left center, right center, from("+backcolor+"),to("+backcolor_b+"))"
+		}
+		else {
+			document.getElementById("textbox").style.background=backcolor
+		}
+		i_step++
+		var timer=setTimeout("changefromto()",pausesteps);
+	
+    } 
+  	else {
+  		clearTimeout(timer)
+		i_step=1
+		i_loop++
+		if (i_loop<i_loopmax) {var timer=setTimeout("translateintorgb()",pausebetweencolors);}
+  	}
+}
+
+document.write("<div id='textbox' class='textboxstyle' style='position:relative;width:"+textboxwidth+"px;height:"+textboxheight+"px;'>")
+document.write("<div style='position:absolute;left:0px;top:0px;width:"+textboxwidth+"px;height:"+textboxheight+"px;'><table width="+textboxwidth+" height="+textboxheight+"><tr><td id='textalign' class='textalignstyle'><a href='"+message[0].linkto+"' id='textcontent' class='textcontentstyle'>"+message[0].text+"</a> </td></tr></table></div>")
+document.write("</div>")
+
+if (browserok) {
+	window.onload=translateintorgb
+}
+</script>
+<!------------------------------------>
+<!-- END OF MESSAGE-BOARD SCRIPT -->
+<!------------------------------------>

@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+ <!-- Created by TopStyle Pro Trial Version - www.bradsoft.com -->
+ <title></title> 
+ 
+ <style type="text/css">
+ #showMsg{
+  background: Silver;
+  height: 100px;
+  width: 350px;
+    text-align: justify;
+ }
+ </style>
+</head>
+
+<body>
+
+<div id="showMsg"></div>
+请输入要添加的内容:<input type="text" id="text" name="text">
+<input type="button" id="send" name="send" value="发送">
+<input type="button" id="remove" name="remove" value="删除">
+<script type="text/javascript">
+function showMsg(){
+var oText = document.getElementById("text");
+
+var pNode  = document.createElement("p");
+var tNode  = document.createTextNode(oText.value);
+  pNode.appendChild(tNode);
+var dContent = document.getElementById("showMsg");
+dContent.insertBefore(pNode,dContent.firstChild);
+oText.value='';
+}
+
+function removeMsg(){
+   var oDiv = document.getElementById("showMsg");
+ var oP = document.getElementsByTagName("p");
+ oDiv.removeChild(oP[0]);
+}
+document.getElementById("send").onclick=showMsg;
+document.getElementById("remove").onclick=removeMsg;
+</script>
+</body>
+
+</html>

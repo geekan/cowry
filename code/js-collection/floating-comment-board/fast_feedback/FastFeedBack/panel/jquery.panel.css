@@ -1,0 +1,73 @@
+﻿
+.jquery_panel_title
+{
+	border:0px;
+	font-size: 12px;
+	margin:1px;
+	height: 20px;
+	line-height: 20px;	
+}
+
+.jquery_panel_title .title_font
+{
+	background:transparent url(skins/blue/post.gif) no-repeat scroll 0 2px;
+	float: left;
+	padding-left:18px;
+}
+
+.jquery_panel_title .jquery_panel_button
+{
+	margin: 1px;
+	float: right;
+	width: 60px;
+}
+.jquery_panel_title .jquery_panel_button .close
+{
+	background-position: 0px 0px;
+}
+.jquery_panel_title .jquery_panel_button .close:hover
+{
+	background-position: -15px 0px;
+}
+.jquery_panel_title .jquery_panel_button .down
+{
+	background-position: 0px -75px;
+}
+.jquery_panel_title .jquery_panel_button .down:hover
+{
+	background-position: -15px -75px;
+}
+.jquery_panel_title .jquery_panel_button .up
+{
+	background-position: 0px -60px;
+}
+.jquery_panel_title .jquery_panel_button .up:hover
+{
+	background-position: -15px -60px;
+}
+.jquery_panel_title .jquery_panel_button .max
+{
+	background-position: 0px -45px;
+}
+.jquery_panel_title .jquery_panel_button .max:hover
+{
+	background-position: -15px -45px;
+}
+.jquery_panel_title .jquery_panel_button .min
+{
+	background-position: 0px -30px;
+}
+.jquery_panel_title .jquery_panel_button .min:hover
+{
+	background-position: -15px -30px;
+}
+.jquery-x-tool
+{
+
+	cursor: pointer;
+	float: right;
+	height: 15px;
+	margin-left: 2px;
+	overflow: hidden;
+	width: 15px;
+}

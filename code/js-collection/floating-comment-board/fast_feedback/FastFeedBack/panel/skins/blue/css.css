@@ -1,0 +1,112 @@
+﻿#jquery_panel
+{
+	width: 180px;
+	border: solid #8DB2E3 1px;
+	color: #15428B;
+	font-family: tahoma;
+	font-size: 12px;
+	font-size-adjust: none;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: normal;
+	background-color: #DEEBF7;
+}
+.jquery_panel_title
+{
+	color: #15428B;
+	background: #D0DEF0 url(bg.gif) repeat-x scroll left top;
+	border-color: #A9BFD3;
+	border-style: solid;
+	border-width: 0 0 1px;
+	display: block;
+	padding: 2px;
+}
+.jquery-x-tool
+{
+	background: transparent url(tool-sprites.gif) no-repeat scroll 0 0;
+}
+/* message body */
+.jquery_panel_error
+{
+	background: #FFF1EB url(error.gif) no-repeat scroll 0 0;
+	background-position: 30px center;
+	border: 1px solid #E5B5B0;
+	color: #990000;
+	width: 384px;
+	line-height: 20px;
+	padding: 5px 5px 5px 50px;
+	margin-bottom: 5px;
+	text-align: left;
+}
+.jquery_panel_messagebox textarea
+{
+	
+	font-family: tahoma;
+	font-size: 0.9em;
+	line-height: 16px;
+	padding: 4px;
+	vertical-align: middle;
+}
+.jquery_panel_messagebox textarea.min
+{
+	height: 50px;
+	width: 150px;
+}
+.jquery_panel_messagebox textarea.max
+{
+	width: 430px;
+	height:150px;
+	font-size:14px;
+	color:Black;
+}
+.jquery_panel_messagebox
+{
+	vertical-align: middle;
+	padding: 5px;
+}
+
+.jquery_panel_submit
+{
+	height: 35px;
+	vertical-align: middle;
+	text-align: center;
+	padding-top: 6px;
+	display: none;
+}
+.jquery_panel_code
+{
+	text-align: left;
+	padding-left: 11pt;
+	padding-bottom: 5px;
+	vertical-align:bottom;
+	}
+.jquery_panel_code input
+{
+	width:50px;
+	}
+	
+	.inputerror
+	{
+		border:1px solid #E5B5B0;
+	}
+	.inputnormal
+	{
+		border: 1px solid #CCCCCC;
+		}
+.jquery_message_num
+{
+	font-size:10px;
+}
+.jquery_scuritycode
+{
+	width:160px;
+	height:60px;  
+}
+.jquery_scuritycode_submit
+{
+	cursor:pointer;
+	font-size:10px;
+	color:#666666;
+	text-decoration: underline;
+}
