@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://90du.es/demo/js-demo/scrollfixed-sidebar.html -->
+<html class="js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" lang="en" style=""><!--<![endif]-->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<meta charset="utf-8">
+	
+	<title>modifyed Sidebar with jQuery</title>
+	
+	<meta name="title" content="Creating a Scrollfixed Sidebar with jQuery.">
+	<meta name="author" content="Galovia">
+	<meta name="Copyright" content="Galovia. 2011. All Rights Reserved.">
+	<meta name="viewport" content="width=device-width">
+	 
+	<!-- CSS: screen, mobile & print are all in the same file -->
+	<link rel="stylesheet" href="http://no-mans-land.wdimg.com/css/reset.css">
+	<link rel="stylesheet" href="http://no-mans-land.wdimg.com/css/demo-format.css">
+
+	<style> 
+	.fixed {position:fixed;top:20px;right:20px;background-color:#90EE90;border-color:green; }
+	article{height:2800px;}
+	</style>
+
+	<script src="./Scrollfixed Sidebar with jQuery_files/modernizr.min.js"></script>
+</head>
+
+<body ryt13969="1">
+
+<div class="wrapper">
+
+	<header>
+		
+		<h1>modifyed Sidebar with jQuery</h1>
+
+	</header>
+	<div class="clearfix"></div>
+	<article></article>
+
+	<aside>
+		<div id="floatPanel">
+			<div id="showMsg"></div>
+			请输入留言:<input type="text" id="text" name="text">
+			<input type="button" id="send" name="send" value="发送">
+			<input type="button" id="remove" name="remove" value="删除">
+			<script type="text/javascript">
+			function showMsg(){
+			var oText = document.getElementById("text");
+
+			var pNode  = document.createElement("p");
+			var tNode  = document.createTextNode(oText.value);
+			  pNode.appendChild(tNode);
+			var dContent = document.getElementById("showMsg");
+			dContent.insertBefore(pNode,dContent.firstChild);
+			oText.value='';
+			}
+
+			function removeMsg(){
+			   var oDiv = document.getElementById("showMsg");
+			 var oP = document.getElementsByTagName("p");
+			 oDiv.removeChild(oP[0]);
+			}
+			document.getElementById("send").onclick=showMsg;
+			document.getElementById("remove").onclick=removeMsg;
+			</script>
+		</div>
+	</aside>
+
+	<footer class="clear">
+		<p>// Footer</p>
+	</footer>
+</div>
+
+
+<script src="./Scrollfixed Sidebar with jQuery_files/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://no-mans-land.wdimg.com/js/latest-jquery.min.js"><\/script>')</script>
+<script src="./Scrollfixed Sidebar with jQuery_files/prettify.js"></script><div id="demoHome">Demo Index</div>
+
+<script>
+/* trigger when page is ready */  
+$(document).ready(function (){   
+
+  // check where the sidebar div is   
+  var offset = $('aside').offset();   
+       
+    $(window).scroll(function () {   
+      var scrollTop = $(window).scrollTop(); // check the visible top of the browser
+        if (offset.top < scrollTop) $('aside').addClass('fixed');   
+        else $('aside').removeClass('fixed');   
+        });   
+
+});
+
+</script>
+
+  
+
+</body></html>

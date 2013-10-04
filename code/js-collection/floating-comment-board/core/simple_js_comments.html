@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://90du.es/demo/js-demo/scrollfixed-sidebar.html -->
+<html class="js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" lang="en" style=""><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=gbk">
+
+	<meta charset="gbk">
+ <!-- Created by TopStyle Pro Trial Version - www.bradsoft.com -->
+ <title></title> 
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js">
+</script>
+<style type="text/css">
+
+#TestT {
+	float:left;
+	width:700px;
+};
+#showMsg{
+  background: Silver;
+  height: 100px;
+  width: 350px;
+  text-align: justify;
+}
+#floatPanel{
+  float:left;
+    position: fixed;     
+    top: 200px;    
+    margin-left: 720px;   
+  
+}
+.fixed {    
+    position: fixed;     
+    top: 20px;    
+    margin-left: 720px;    
+    background-color: #0f0 ! important; 
+} 
+</style>
+
+</head>
+
+<body>
+
+	<div id="TestT">
+	<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1
+	</div>
+	
+	<div id="floatPanel">
+		<div id="showMsg"></div>
+		请输入留言:<input type="text" id="text" name="text">
+		<input type="button" id="send" name="send" value="发送">
+		<input type="button" id="remove" name="remove" value="删除">
+		<script type="text/javascript">
+		function showMsg(){
+		var oText = document.getElementById("text");
+
+		var pNode  = document.createElement("p");
+		var tNode  = document.createTextNode(oText.value);
+		  pNode.appendChild(tNode);
+		var dContent = document.getElementById("showMsg");
+		dContent.insertBefore(pNode,dContent.firstChild);
+		oText.value='';
+		}
+
+		function removeMsg(){
+		   var oDiv = document.getElementById("showMsg");
+		 var oP = document.getElementsByTagName("p");
+		 oDiv.removeChild(oP[0]);
+		}
+		document.getElementById("send").onclick=showMsg;
+		document.getElementById("remove").onclick=removeMsg;
+		</script>
+	</div>
+</body>
+<!-- 
+<script>
+/* trigger when page is ready */  
+$(document).ready(function() {  
+    // check where the shoppingcart-div is  
+    var offset = $('#floatPanel').offset();  
+    $(window).scroll(function () {    
+        var scrollTop = $(window).scrollTop(); 
+        // check the visible top of the browser     
+        if (offset.top<scrollTop) {
+            $('#floatPanel').addClass('fixed'); 
+        } else {
+            $('#floatPanel').removeClass('fixed');   
+        }
+    }); 
+}); 
+
+</script> -->
+
+</html>

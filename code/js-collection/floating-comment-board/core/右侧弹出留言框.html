@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>jquery 右侧弹出评论栏</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+</head>
+<body>
+<style type="text/css">
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,table,th,td,section,article,aside,header,footer,nav,dialog,figure{margin:0;padding:0}
+body,button,input,select,textarea{font:12px/1.5 "Microsoft YaHei", "\5B8B\4F53",Tahoma, Geneva, sans-serif;color:#333}
+html{zoom:expression(function(ele){ele.style.zoom = "1";document.execCommand("BackgroundImageCache", false, true);})(this);}
+body{ background:#FFF;}
+section,article,aside,header,footer,nav,dialog,figure{display:block}
+table{border-collapse:collapse;border-spacing:0}
+fieldset,img{border:0} 
+address,caption,cite,code,dfn,em,b,th,var,i{font-weight:normal;font-style:normal}
+code,kbd,pre,samp{font-family:courier new,courier,monospace}
+ol,ul,li{list-style:none} 
+.clear{overflow:hidden;clear:both}
+.clearfix:after{clear:both;overflow:hidden;content:"."}
+.cf:before, .cf:after {content:"";display:table;}
+.cf:after {clear:both;}
+.cf {zoom:1;}
+
+/*aSlide_tools*/
+#right_float{position: fixed; right: 0; top: 200px; z-index:999; _overflow-x:hidden;}
+#commentBoard{width: 500px; position: relative; height: 200px; right: -420px; line-height: 50px;border:1px solid #e0e0e0;border-right:0px;margin-top:-1px; background:#fff;}
+
+</style>
+<div>
+<div id="right_float">
+	<!-- <a id="float1" href="#" target="_blank"></a> -->
+	<!-- <span><a href="#" target="_blank">会员服务</a></span> -->
+	
+	<div id="commentBoard">
+		<style type="text/css">
+		#showMsg{
+		  background: Silver;
+		  height: inherit;
+		  width: inherit;
+		  text-align: justify;
+		}
+		</style>
+		<div id="showMsg"></div>
+		请输入留言:<input type="text" id="text" name="text">
+		<input type="button" id="send" name="send" value="发送">
+		<input type="button" id="remove" name="remove" value="删除">
+		<script type="text/javascript">
+		function showMsg(){
+		var oText = document.getElementById("text");
+
+		var pNode  = document.createElement("p");
+		var tNode  = document.createTextNode(oText.value);
+		  pNode.appendChild(tNode);
+		var dContent = document.getElementById("showMsg");
+		dContent.insertBefore(pNode,dContent.firstChild);
+		oText.value='';
+		}
+
+		function removeMsg(){
+		   var oDiv = document.getElementById("showMsg");
+		 var oP = document.getElementsByTagName("p");
+		 oDiv.removeChild(oP[0]);
+		}
+		document.getElementById("send").onclick=showMsg;
+		document.getElementById("remove").onclick=removeMsg;
+		</script>
+	</div></div>
+<script type="text/javascript">
+	var isIE6 = !!window.ActiveXObject&&!window.XMLHttpRequest;
+	$("#commentBoard").hover(function(){
+	$(this).stop().animate({"right": "0px"},400);
+	},function(){
+	$(this).stop().animate({"right": "-420px"},200);
+	});
+	if(isIE6){
+	$("#right_float").css("position","absolute");
+	setInterval(function(){
+	var _top = document.body.scrollTop || document.documentElement.scrollTop;
+	$("#right_float").animate({"top": 200+_top+"px"},200);
+	},1000);
+	};
+</script>
+</div>
+
+</body>
+</html>

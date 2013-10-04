@@ -1,0 +1,38 @@
+/* NAME:	jquery.bui.sidebar.css
+ * VERSION:	0.0.1
+ * DATE:	2013-4-11
+ * AUTHOR:	blacklaw
+ * HOME:	www.townke.com
+ * EMAIL:	2577927146@qq.com
+ * DEPENDED:
+ *			jquery.bui.sidebar.js
+ *
+ */
+
+
+.bui-sidebar-handler{
+	z-index:10;
+	opacity:.5;
+	right:0;
+	background:#3CC;
+	position:fixed;
+	text-align:center;
+	font-size:15px;
+	line-height:30px;
+	cursor:pointer;
+	word-wrap:break-word;
+	overflow:hidden;
+	writing-mode:tb-rl;
+	border-top-left-radius:4px;
+	border-bottom-left-radius:4px;
+}
+.bui-sidebar-handler:hover{
+	opacity:1;
+	background:#F66;	
+}
+.bui-sidebar{
+	top:0;
+	background:#3cc;
+	right:0px;
+	position:fixed;
+}

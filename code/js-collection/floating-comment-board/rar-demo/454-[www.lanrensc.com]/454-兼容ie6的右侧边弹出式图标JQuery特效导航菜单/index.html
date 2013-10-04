@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>兼容所有浏览器的JQuery右侧边弹出式图标导航菜单 - 懒人素材</title>
+<meta name="keywords" content="懒人素材,网页素材,网页素材下载,HTML5,JQuery,JQuery特效,焦点图,幻灯片,菜单导航,CSS3,CSS3工具,Web素材,JS代码,JQuery插件,psd素材,PNG图标">
+<meta name="description" content="懒人素材专注于提供免费的WEB设计素材下载，所有素材都是经过精挑细选的，包括JS代码、JQuery特效、CSS代码、导航菜单、PNG图标等各种网页设计素材！">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+</head>
+<body>
+<style type="text/css">
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,table,th,td,section,article,aside,header,footer,nav,dialog,figure{margin:0;padding:0}
+body,button,input,select,textarea{font:12px/1.5 "Microsoft YaHei", "\5B8B\4F53",Tahoma, Geneva, sans-serif;color:#333}
+html{zoom:expression(function(ele){ele.style.zoom = "1";document.execCommand("BackgroundImageCache", false, true);})(this);}
+body{ background:#FFF;}
+section,article,aside,header,footer,nav,dialog,figure{display:block}
+table{border-collapse:collapse;border-spacing:0}
+fieldset,img{border:0} 
+address,caption,cite,code,dfn,em,b,th,var,i{font-weight:normal;font-style:normal}
+code,kbd,pre,samp{font-family:courier new,courier,monospace}
+ol,ul,li{list-style:none} 
+.clear{overflow:hidden;clear:both}
+.clearfix:after{clear:both;overflow:hidden;content:"."}
+.cf:before, .cf:after {content:"";display:table;}
+.cf:after {clear:both;}
+.cf {zoom:1;}
+
+/*aSlide_tools*/
+#right_float{position: fixed; right: 0; top: 200px; z-index:999; _overflow-x:hidden;}
+#right_float li span{position: absolute; left: 60px; display: in-line-block; text-align: center;font-size:14px;font-weight:700;}
+#right_float li{width: 125px; position: relative; height: 50px; right: -70px; line-height: 50px;border:1px solid #e0e0e0;border-right:0px;margin-top:-1px; background:#fff;}
+a#float1,a#float2,a#float3{display: block; width: 45px; background: url(huizhang.gif) no-repeat; position: absolute; top: 5px; left: 5px; height: 40px;}
+a#float1{ background-position: -5px 0;}
+a#float2{ background-position: -60px 0;}
+a#float3{ background-position: -115px 0;}
+#right_float .i1 a{color:#1a66b3; text-decoration:none;}
+#right_float .i2 a{color:#d12912; text-decoration:none;}
+#right_float .i3 a{color:#cf860a; text-decoration:none;}
+</style>
+<div>
+<ul id="right_float">
+	<li class="i1">
+	<a id="float1" href="#" target="_blank"></a>
+	<span><a href="#" target="_blank">会员服务</a></span>
+	</li>
+	<li class="i2">
+	<a id="float2" href="#" target="_blank"></a>
+	<span><a href="#" target="_blank">标王</a></span>
+	</li>
+	<li class="i3">
+	<a id="float3" href="#" target="_blank"></a>
+	<span><a href="#" target="_blank">黄金展位</a></span>
+	</li>
+	<li class="i1">
+	<a id="float1" href="#" target="_blank"></a>
+	<span><a href="#" target="_blank">会员服务</a></span>
+	</li>
+	<li class="i2">
+	<a id="float2" href="#" target="_blank"></a>
+	<span><a href="#" target="_blank">标王</a></span>
+	</li>
+	<li class="i3">
+	<a id="float3" href="#" target="_blank"></a>
+	<span><a href="#" target="_blank">黄金展位</a></span>
+	</li>
+</ul>
+<script type="text/javascript">
+	var isIE6 = !!window.ActiveXObject&&!window.XMLHttpRequest;
+	$("#right_float>li").hover(function(){
+	$(this).stop().animate({"right": "0px"},400);
+	},function(){
+	$(this).stop().animate({"right": "-70px"},200);
+	});
+	if(isIE6){
+	$("#right_float").css("position","absolute");
+	setInterval(function(){
+	var _top = document.body.scrollTop || document.documentElement.scrollTop;
+	$("#right_float").animate({"top": 200+_top+"px"},200);
+	},1000);
+	};
+</script>
+</div>
+
+ </body>
+</html>

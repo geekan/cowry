@@ -1,0 +1,189 @@
+body {
+	font: 12px/18px Tahoma, Verdana, "BitStream vera Sans", Arial, Helvetica, Sans-serif; padding-bottom: 40px; border-top-color: rgb(114, 196, 210); border-top-width: 5px; border-top-style: solid; font-size-adjust: none; font-stretch: normal; background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAIAQMAAAARA0f2AAAAA3NCSVQICAjb4U/gAAAABlBMVEXo4c7s59jlmUFzAAAACXBIWXMAAAsSAAALEgHS3X78AAAAHHRFWHRTb2Z0d2FyZQBBZG9iZSBGaXJld29ya3MgQ1MzmNZGAwAAABV0RVh0Q3JlYXRpb24gVGltZQAyLzE2LzEwj+B0TgAAABJJREFUCJlj+N/AAEQNDAyoDAB5zQn7O9x7hQAAAABJRU5ErkJggg%3D%3D"); background-color: rgb(236, 231, 216);
+}
+p {
+	margin-bottom: 8px;
+}
+.wrapper {
+	margin: 0px auto; width: 920px;
+}
+header {
+	padding: 10px; border: 8px solid transparent; margin-bottom: 20px; -ms-word-wrap: break-word; box-shadow: 0px 0px 8px rgba(0,0,0,0.3); background-clip: padding-box; background-color: rgb(255, 255, 255); -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.3); -webkit-background-clip: padding-box; -moz-background-clip: padding-box;
+}
+article {
+	padding: 10px; border: 8px solid transparent; margin-bottom: 20px; -ms-word-wrap: break-word; box-shadow: 0px 0px 8px rgba(0,0,0,0.3); background-clip: padding-box; background-color: rgb(255, 255, 255); -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.3); -webkit-background-clip: padding-box; -moz-background-clip: padding-box;
+}
+aside {
+	padding: 10px; border: 8px solid transparent; margin-bottom: 20px; -ms-word-wrap: break-word; box-shadow: 0px 0px 8px rgba(0,0,0,0.3); background-clip: padding-box; background-color: rgb(255, 255, 255); -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.3); -webkit-background-clip: padding-box; -moz-background-clip: padding-box;
+}
+footer {
+	padding: 10px; border: 8px solid transparent; margin-bottom: 20px; -ms-word-wrap: break-word; box-shadow: 0px 0px 8px rgba(0,0,0,0.3); background-clip: padding-box; background-color: rgb(255, 255, 255); -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.3); -webkit-background-clip: padding-box; -moz-background-clip: padding-box;
+}
+.lt-ie9 header {
+	outline: rgb(204, 204, 204) solid 1px; border: 8px solid rgb(255, 255, 255);
+}
+.lt-ie9 article {
+	outline: rgb(204, 204, 204) solid 1px; border: 8px solid rgb(255, 255, 255);
+}
+.lt-ie9 aside {
+	outline: rgb(204, 204, 204) solid 1px; border: 8px solid rgb(255, 255, 255);
+}
+.lt-ie9 footer {
+	outline: rgb(204, 204, 204) solid 1px; border: 8px solid rgb(255, 255, 255);
+}
+header {
+	color: rgb(0, 0, 0); border-top-color: currentColor; border-top-width: 0px; border-top-style: none; text-shadow: 0px 1px 0px #eee;
+}
+article {
+	width: 600px; float: right; min-height: 400px; background-color: rgb(255, 255, 255);
+}
+aside {
+	width: 225px; color: rgb(0, 0, 0); min-height: 400px; background-color: rgb(232, 227, 111);
+}
+aside h2 {
+	border-bottom-color: rgb(68, 68, 68); border-bottom-width: 1px; border-bottom-style: dotted;
+}
+footer {
+	margin-bottom: 0px;
+}
+h1 {
+	margin: 5px 0px; font-size: 1em;
+}
+h2 {
+	margin: 5px 0px; font-size: 1em;
+}
+h3 {
+	margin: 5px 0px; font-size: 1em;
+}
+article > h1 {
+	background: rgba(114, 196, 210, 0.2); border-width: 0px 0px 0px 8px; border-style: none none none solid; border-color: currentColor currentColor currentColor rgb(114, 196, 210); margin: 15px -10px 15px -18px; padding: 5px 10px;
+}
+article > h2 {
+	background: rgba(114, 196, 210, 0.2); border-width: 0px 0px 0px 8px; border-style: none none none solid; border-color: currentColor currentColor currentColor rgb(114, 196, 210); margin: 15px -10px 15px -18px; padding: 5px 10px;
+}
+article > h3 {
+	background: rgba(114, 196, 210, 0.2); border-width: 0px 0px 0px 8px; border-style: none none none solid; border-color: currentColor currentColor currentColor rgb(114, 196, 210); margin: 15px -10px 15px -18px; padding: 5px 10px;
+}
+footer > h1 {
+	background: rgba(114, 196, 210, 0.2); border-width: 0px 0px 0px 8px; border-style: none none none solid; border-color: currentColor currentColor currentColor rgb(114, 196, 210); margin: 15px -10px 15px -18px; padding: 5px 10px;
+}
+footer > h2 {
+	background: rgba(114, 196, 210, 0.2); border-width: 0px 0px 0px 8px; border-style: none none none solid; border-color: currentColor currentColor currentColor rgb(114, 196, 210); margin: 15px -10px 15px -18px; padding: 5px 10px;
+}
+footer > h3 {
+	background: rgba(114, 196, 210, 0.2); border-width: 0px 0px 0px 8px; border-style: none none none solid; border-color: currentColor currentColor currentColor rgb(114, 196, 210); margin: 15px -10px 15px -18px; padding: 5px 10px;
+}
+.clear {
+	clear: both;
+}
+pre {
+	background: rgb(51, 51, 51); margin: 0px 0px 25px; padding: 40px 10px 10px; border-radius: 8px; color: rgb(255, 255, 255); line-height: 1.8; overflow: auto; position: relative;
+}
+.ie6 pre {
+	padding: 10px;
+}
+.ie7 pre {
+	padding: 10px;
+}
+.lt-ie8 pre {
+	padding: 10px;
+}
+pre code {
+	background: rgb(51, 51, 51); color: rgb(255, 255, 255);
+}
+pre[rel]::after {
+	background: rgb(44, 83, 158); font: bold 16px/1.5 Georgia, serif; padding: 5px 5px 5px 15px; border-radius: 8px 8px 0px 0px; left: 0px; top: -1px; right: 0px; color: rgb(255, 255, 255); text-transform: uppercase; position: absolute; content: attr(rel); font-size-adjust: none; font-stretch: normal; text-shadow: 0px 1px 0px rgba(0,0,0,0.4);
+}
+pre[rel=css]::after {
+	background: rgb(250, 193, 38);
+}
+pre[rel=php]::after {
+	background: rgb(0, 193, 255);
+}
+pre[rel=javascript]::after {
+	background: rgb(115, 152, 23);
+}
+pre[rel=js]::after {
+	background: rgb(115, 152, 23);
+}
+pre[rel=html]::after {
+	background: rgb(50, 151, 203);
+}
+pre .str {
+	color: rgb(255, 132, 0);
+}
+pre .kwd {
+	color: rgb(232, 237, 151);
+}
+pre .com {
+	color: rgb(153, 153, 153);
+}
+pre .typ {
+	color: rgb(154, 132, 140);
+}
+pre .lit {
+	color: rgb(201, 120, 62);
+}
+pre .pun {
+	color: rgb(238, 238, 238);
+}
+pre .pln {
+	color: rgb(223, 196, 132);
+}
+pre .tag {
+	color: rgb(223, 196, 132);
+}
+pre .atn {
+	color: rgb(223, 196, 132);
+}
+pre .atv {
+	color: rgb(142, 156, 92);
+}
+pre .dec {
+	color: rgb(204, 204, 204);
+}
+#demoHome {
+	background: rgb(19, 20, 21); margin: 3em auto; padding: 1em; border: 1px solid rgb(0, 0, 0); width: 300px; text-align: center; color: rgb(255, 255, 255); clear: both; cursor: pointer;
+}
+.chromeframe {
+	background: rgb(255, 247, 144); margin: 0px 0px 2em; padding: 0.75em 0px; text-align: center; color: rgb(68, 68, 68);
+}
+.chromeframe a {
+	color: rgb(254, 78, 101);
+}
+.showAlt {
+	background: inherit;
+}
+.showAlt #alt {
+	display: block;
+}
+#alt {
+	display: none;
+}
+#alt {
+	background: inherit; padding: 50px; left: 0px; top: 0px; text-align: center; right: 0px; bottom: 0px; position: fixed; z-index: 999;
+}
+#alt img {
+	border-radius: 4px; box-shadow: 0px 1px 4px hsla(0, 0%, 0%, 0.15);
+}
+#h5p-message {
+	background: rgb(255, 255, 255); margin: 0px auto; padding: 20px; border-radius: 0px 0px 4px 4px; color: rgb(153, 153, 153); max-width: 600px; box-shadow: 0px 1px 4px hsla(0, 0%, 0%, 0.15);
+}
+#h5p-message .caniuse {
+	border: currentColor; font-size: 12px; box-shadow: none;
+}
+#nprogress {
+	pointer-events: none; -webkit-pointer-events: none;
+}
+#nprogress .bar {
+	background: rgb(34, 153, 221); left: 0px; top: 0px; width: 100%; height: 10px; position: fixed; z-index: 100;
+}
+#nprogress .peg {
+	width: 100px; height: 100%; right: 0px; display: block; position: absolute; opacity: 1; box-shadow: 0px 0px 10px #29d, 0px 0px 5px #29d; transform: rotate(3deg) translate(0, -4px); -webkit-transform: rotate(3deg) translate(0, -4px); -moz-transform: rotate(3deg) translate(0, -4px); -o-transform: rotate(3deg) translate(0, -4px);
+}
+#nprogress .spinner {
+	top: 15px; right: 15px; display: block; position: fixed; z-index: 100;
+}
+#nprogress .spinner-icon {
+	border-width: 2px; border-style: solid; border-color: rgb(34, 153, 221) transparent transparent rgb(34, 153, 221); border-radius: 10px; animation:nprogress-spinner 400ms linear infinite; width: 14px; height: 14px; -webkit-animation: nprogress-spinner 400ms linear infinite; -moz-animation: nprogress-spinner 400ms linear infinite; -o-animation: nprogress-spinner 400ms linear infinite;
+}

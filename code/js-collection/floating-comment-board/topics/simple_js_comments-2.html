@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+	<meta charset="gbk">
+	
+	<title>1234</title>
+	 
+	<!-- CSS: screen, mobile & print are all in the same file -->
+	<link rel="stylesheet" href="http://no-mans-land.wdimg.com/css/reset.css">
+	<link rel="stylesheet" href="http://no-mans-land.wdimg.com/css/demo-format.css">
+
+	<style> 
+	.fixed {position:fixed;top:20px;background-color:#90EE90;border-color:green; }
+	article{height:2800px;}
+	</style>
+
+	<script src="./Scrollfixed Sidebar with jQuery_files/modernizr.min.js"></script>
+
+<style type="text/css">
+#showMsg{
+  background: Silver;
+  height: 100px;
+  width: 350px;
+  text-align: justify;
+}
+#floatPanel{
+  position:absolute;
+  top:4%;
+  right:2%;
+}
+.fixed {   
+    position:fixed;   
+    top:20px;   
+    background-color:#90EE90 /* 可选 */  
+}
+</style>
+</head>
+
+<body ryt13969="1">
+
+<div class="wrapper">
+	<div class="clearfix"></div>
+	<article>
+		<h2>Info</h2>
+		<p>注意：本页使用HTML5的模板</p>		
+		<hr>
+		<h1>The Code</h1>
+		<p>添加 CSS</p>
+<pre rel="css" class="prettyprint prettyprinted" style=""><code><span class="pun">.</span><span class="kwd">fixed</span><span class="pln"> </span><span class="pun">{</span><span class="pln">   
+    position</span><span class="pun">:</span><span class="kwd">fixed</span><span class="pun">;</span><span class="pln">   
+    top</span><span class="pun">:</span><span class="lit">20px</span><span class="pun">;</span><span class="pln">   
+    background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:#</span><span class="lit">90EE90</span><span class="pln"> </span><span class="com">/* 可选 */</span><span class="pln">  
+</span><span class="pun">}</span></code></pre>
+
+		<p>添加 jQuery</p>
+<pre rel="js" class="prettyprint prettyprinted" style=""><code><span class="com">/* trigger when page is ready */</span><span class="pln">  
+$</span><span class="pun">(</span><span class="pln">document</span><span class="pun">).</span><span class="pln">ready</span><span class="pun">(</span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(){</span><span class="pln">   
+
+  </span><span class="com">// check where the sidebar div is   </span><span class="pln">
+  </span><span class="kwd">var</span><span class="pln"> offset </span><span class="pun">=</span><span class="pln"> $</span><span class="pun">(</span><span class="str">'aside'</span><span class="pun">).</span><span class="pln">offset</span><span class="pun">();</span><span class="pln">   
+       
+    $</span><span class="pun">(</span><span class="pln">window</span><span class="pun">).</span><span class="pln">scroll</span><span class="pun">(</span><span class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">   
+      </span><span class="kwd">var</span><span class="pln"> scrollTop </span><span class="pun">=</span><span class="pln"> $</span><span class="pun">(</span><span class="pln">window</span><span class="pun">).</span><span class="pln">scrollTop</span><span class="pun">();</span><span class="pln"> </span><span class="com">// check the visible top of the browser</span><span class="pln">
+        </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">offset</span><span class="pun">.</span><span class="pln">top </span><span class="pun">&lt;</span><span class="pln"> scrollTop</span><span class="pun">)</span><span class="pln"> $</span><span class="pun">(</span><span class="str">'aside'</span><span class="pun">).</span><span class="pln">addClass</span><span class="pun">(</span><span class="str">'fixed'</span><span class="pun">);</span><span class="pln">   
+        </span><span class="kwd">else</span><span class="pln"> $</span><span class="pun">(</span><span class="str">'aside'</span><span class="pun">).</span><span class="pln">removeClass</span><span class="pun">(</span><span class="str">'fixed'</span><span class="pun">);</span><span class="pln">   
+        </span><span class="pun">});</span><span class="pln">   
+
+</span><span class="pun">});</span></code></pre>
+
+
+<p>via: <a href="http://stackoverflow.com/questions/5273453/using-jquery-to-keep-scrolling-object-within-visible-window" target="_blank">stackoverflow.com</a></p>
+	</article>
+
+<!-- <br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1
+ -->
+	<aside>
+		<h1>Example</h1>
+		<p>&nbsp;</p>
+		<h3>This is an &lt;aside&gt; HTML tag.</h3>
+		<p>&nbsp;</p>
+		<p>效果：滚动注意侧边栏。</p>
+		
+		<p>&nbsp;</p>
+		<p>// 空行</p>
+		<div id="floatPanel">
+<div id="showMsg"></div>
+请输入留言:<input type="text" id="text" name="text">
+<input type="button" id="send" name="send" value="发送">
+<input type="button" id="remove" name="remove" value="删除">
+<script type="text/javascript">
+function showMsg(){
+var oText = document.getElementById("text");
+
+var pNode  = document.createElement("p");
+var tNode  = document.createTextNode(oText.value);
+  pNode.appendChild(tNode);
+var dContent = document.getElementById("showMsg");
+dContent.insertBefore(pNode,dContent.firstChild);
+oText.value='';
+}
+
+function removeMsg(){
+   var oDiv = document.getElementById("showMsg");
+ var oP = document.getElementsByTagName("p");
+ oDiv.removeChild(oP[0]);
+}
+document.getElementById("send").onclick=showMsg;
+document.getElementById("remove").onclick=removeMsg;
+</script>
+</div>
+	</aside>
+
+
+	<footer class="clear">
+		<p>// Footer</p>
+	</footer>
+</div>
+
+<script src="./Scrollfixed Sidebar with jQuery_files/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://no-mans-land.wdimg.com/js/latest-jquery.min.js"><\/script>')</script>
+<script src="./Scrollfixed Sidebar with jQuery_files/prettify.js"></script><div id="demoHome">Demo Index</div>
+
+<script>
+/* trigger when page is ready */  
+$(document).ready(function (){   
+
+  // check where the sidebar div is   
+  var offset = $('aside').offset();   
+       
+    $(window).scroll(function () {   
+      var scrollTop = $(window).scrollTop(); // check the visible top of the browser
+        if (offset.top < scrollTop) $('aside').addClass('fixed');   
+        else $('aside').removeClass('fixed');   
+        });   
+
+});
+
+</script>
+
+</body>
+
+
+</html>

@@ -1,0 +1,34 @@
+<div id="commentBoard">
+	<style type="text/css">
+	#showMsg{
+	  background: Silver;
+	  height: 100px;
+	  width: 350px;
+	  text-align: justify;
+	}
+	</style>
+	<div id="showMsg"></div>
+	«Î ‰»Î¡Ù—‘:<input type="text" id="text" name="text">
+	<input type="button" id="send" name="send" value="∑¢ÀÕ">
+	<input type="button" id="remove" name="remove" value="…æ≥˝">
+	<script type="text/javascript">
+	function showMsg(){
+	var oText = document.getElementById("text");
+
+	var pNode  = document.createElement("p");
+	var tNode  = document.createTextNode(oText.value);
+	  pNode.appendChild(tNode);
+	var dContent = document.getElementById("showMsg");
+	dContent.insertBefore(pNode,dContent.firstChild);
+	oText.value='';
+	}
+
+	function removeMsg(){
+	   var oDiv = document.getElementById("showMsg");
+	 var oP = document.getElementsByTagName("p");
+	 oDiv.removeChild(oP[0]);
+	}
+	document.getElementById("send").onclick=showMsg;
+	document.getElementById("remove").onclick=removeMsg;
+	</script>
+</div></div>

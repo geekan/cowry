@@ -4,21 +4,35 @@
 <head>
  <!-- Created by TopStyle Pro Trial Version - www.bradsoft.com -->
  <title></title> 
- 
- <style type="text/css">
- #showMsg{
+
+<style type="text/css">
+#showMsg{
   background: Silver;
   height: 100px;
   width: 350px;
-    text-align: justify;
- }
- </style>
+  text-align: justify;
+}
+#floatPanel{
+  position:absolute;
+  top:4%;
+  right:2%;
+}
+.fixed {   
+    position:fixed;   
+    top:20px;   
+    background-color:#90EE90 /* 可选 */  
+}
+</style>
 </head>
 
 <body>
 
+<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1
+
+<aside>
+<div id="floatPanel">
 <div id="showMsg"></div>
-请输入要添加的内容:<input type="text" id="text" name="text">
+请输入留言:<input type="text" id="text" name="text">
 <input type="button" id="send" name="send" value="发送">
 <input type="button" id="remove" name="remove" value="删除">
 <script type="text/javascript">
@@ -41,6 +55,28 @@ function removeMsg(){
 document.getElementById("send").onclick=showMsg;
 document.getElementById("remove").onclick=removeMsg;
 </script>
+</div>
+</aside>
 </body>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://no-mans-land.wdimg.com/js/latest-jquery.min.js"><\/script>')</script>
+<script src="http://no-mans-land.wdimg.com/js/prettify/prettify.js"></script>
+<script type="text/javascript">
+/* trigger when page is ready */  
+$(document).ready(function (){   
+
+  // check where the sidebar div is   
+  var offset = $('aside').offset();   
+       
+    $(window).scroll(function () {   
+      var scrollTop = $(window).scrollTop(); // check the visible top of the browser
+        if (offset.top < scrollTop) $('aside').addClass('fixed');   
+        else $('aside').removeClass('fixed');   
+        });   
+
+});
+
+</script>
 
 </html>

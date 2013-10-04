@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)http://90du.es/2011/08/scrollfixed-sidebar-with-jquery/ -->
+<html class=" js flexbox no-touch multiplebgs boxsizing cssfilters formvalidation" lang="zh" style=""><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="dns-prefetch" href="http://1.blog.wdimg.com/">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>  滚动固定侧边栏 - 九十度</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="http://1.blog.wdimg.com/wp-content/themes/90du-v2/assets/css/main.1358796473.css">
+<link rel="stylesheet" href="http://1.blog.wdimg.com/wp-content/themes/90du-v2/assets/css/fontello.1358022039.css">
+<!--[if IE 7]>
+<link rel="stylesheet" href="http://1.blog.wdimg.com/wp-content/themes/90du-v2/assets/css/fontello-ie7.1358039886.css">
+<![endif]-->
+<script src="./滚动固定侧边栏 - 九十度_files/ga.js"></script><script src="./滚动固定侧边栏 - 九十度_files/quant.js" async="" type="text/javascript"></script><script src="./滚动固定侧边栏 - 九十度_files/modernizr-2.6.2.min.js"></script>
+<script src="./滚动固定侧边栏 - 九十度_files/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://1.blog.wdimg.com/wp-content/themes/90du-v2/assets/js/jquery-1.9.0-min.js"><\/script>')</script>
+<link rel="pingback" href="http://90du.es/xmlrpc.php">
+<meta name="description" content="使用 jQuery 保持滚动对象在窗口的可见范围内的。 例子：苹果在线商店的购物车  演示  方法  添加 CSS  .fixed {        position:fixed; /* IE 6 不支持 fixed，只能用 absolut..">
+<meta name="keywords" content="jQuery, 网页设计">
+<link rel="alternate" type="application/rss+xml" title="九十度 » Feed" href="http://90du.es/feed/">
+<link rel="alternate" type="application/rss+xml" title="九十度 » Comments Feed" href="http://90du.es/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="九十度 » 滚动固定侧边栏 Comments Feed" href="http://90du.es/2011/08/scrollfixed-sidebar-with-jquery/feed/">
+<link rel="stylesheet" id="jetpack-widgets-css" href="./滚动固定侧边栏 - 九十度_files/widgets.css" type="text/css" media="all">
+<link rel="stylesheet" id="widget-grid-and-list-css" href="./滚动固定侧边栏 - 九十度_files/widget-grid-and-list.css" type="text/css" media="all">
+<style type="text/css">img#wpstats{display:none}</style><link rel="canonical" href="./滚动固定侧边栏 - 九十度_files/滚动固定侧边栏 - 九十度.htm">
+</head><body class="single single-post postid-1118 single-format-standard" style="zoom: 1;" ryt13969="1">
+<!--[if lt IE 9]><p class="chromeframe">本站不支持您正在使用的古董级游览器，请改用 IE10，<a href="http://down.tech.sina.com.cn/content/1461.html" rel="nofollow">FireFox</a>，<a href="http://down.tech.sina.com.cn/content/40975.html" rel="nofollow">Chrome</a>，或者安装<a href="http://down.tech.sina.com.cn/content/45112.html" rel="nofollow">谷歌浏览器内嵌框架</a>再游览本站！</p><![endif]-->
+<header class="site-header" id="top">
+  <div class="inner">
+    <hgroup>
+      <h1 class="site-title"><a href="http://90du.es/" title="九十度" rel="home">九十度</a></h1>
+      <h2 class="site-description">创作/分享/娱乐</h2>
+    </hgroup>
+
+    <nav class="navbar" role="navigation">
+      <ul class="clearfix">
+        <li class="blog">
+          <a href="http://90du.es/" title="博客主页"><i class="icon-home"></i> Home</a>
+        </li>
+        <li class="snippets">
+          <a href="http://90du.es/snippets/" title="代码收藏"><i class="icon-book-open"></i> Snippets</a>
+        </li>
+        <li class="subscribe">
+          <a href="http://90du.es/subscribe/" title="订阅"><i class="icon-rss"></i> Subscribe</a>
+        </li>
+        <li class="links">
+          <a href="http://90du.es/links/" title="链接">
+            <i class="icon-link"></i> Links</a>
+        </li>
+        <li class="about">
+          <a href="http://90du.es/about/" title="关于我"><i class="icon-vcard"></i> About</a>
+        </li>
+        <li class="search">
+          <a href="http://90du.es/2011/08/scrollfixed-sidebar-with-jquery/#searchform" rel="nofollow" title="Open Search">
+           <i class="icon-search"></i> Search</a>
+        </li>
+        <li class="searchform-li" style="display: none;">
+          <form method="get" id="searchform" action="http://90du.es/search/">
+            <input type="search" name="q" required="" id="gi" class="search-query" title="Search" placeholder="Type some keywords ↩" value="">
+            <button type="submit" class="btn btn-3d" id="gs">Submit</button>
+            <button id="close-search">✖ Close</button>
+          </form>
+        </li>
+      </ul>
+    </nav><!-- .navbar -->
+  </div>
+</header><!-- #top -->
+
+<div id="main" class="wrapper">
+  <section id="primary" class="site-content">
+    <div id="content" role="main">
+  
+    
+  <article id="post-1118" class="post-1118 post type-post status-publish format-standard hentry category-web-design tag-jquery">
+        <header class="entry-header">
+                  <h1 class="entry-title">滚动固定侧边栏</h1>
+          </header><!-- .entry-header -->
+
+        <div class="entry-content">
+      <p>使用 jQuery 保持滚动对象在窗口的可见范围内的。</p>
+<p>例子：苹果在线商店的购物车</p>
+<p><a href="http://90du.es/demo/js-demo/scrollfixed-sidebar.html" target="_blank">演示</a></p>
+<h3>方法</h3>
+<p>添加 CSS</p>
+<pre class="prettyprint lang-css prettyprinted" data-rel="css" style=""><code><span class="pun">.</span><span class="pln">fixed </span><span class="pun">{</span><span class="pln">   
+    </span><span class="kwd">position</span><span class="pun">:</span><span class="pln">fixed</span><span class="pun">;</span><span class="pln"> </span><span class="com">/* IE 6 不支持 fixed，只能用 absolute */</span><span class="pln">
+    </span><span class="kwd">top</span><span class="pun">:</span><span class="lit">20px</span><span class="pun">;</span><span class="pln">   
+    </span><span class="kwd">background-color</span><span class="pun">:</span><span class="lit">#90EE90</span><span class="pln"> </span><span class="com">/* 可选 */</span><span class="pln">  
+</span><span class="pun">}</span></code></pre>
+<p>添加 jQuery</p>
+<pre class="prettyprint linenums lang-js prettyprinted" data-rel="js" style=""><ol class="linenums"><li class="L0"><code><span class="pln">$</span><span class="pun">(</span><span class="pln">document</span><span class="pun">).</span><span class="pln">ready</span><span class="pun">(</span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(){</span></code></li><li class="L1"><code></code></li><li class="L2"><code><span class="pln">  </span><span class="com">// 检查对象，这里是 HTML 5 的 "aside"，可改为 ".class" 或者 "#id"</span></code></li><li class="L3"><code><span class="pln">  </span><span class="kwd">var</span><span class="pln"> offset </span><span class="pun">=</span><span class="pln"> $</span><span class="pun">(</span><span class="str">"aside"</span><span class="pun">).</span><span class="pln">offset</span><span class="pun">();</span></code></li><li class="L4"><code><span class="pln">  $</span><span class="pun">(</span><span class="pln">window</span><span class="pun">).</span><span class="pln">scroll</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></code></li><li class="L5"><code><span class="pln">    </span><span class="kwd">var</span><span class="pln"> scrollTop </span><span class="pun">=</span><span class="pln"> $</span><span class="pun">(</span><span class="pln">window</span><span class="pun">).</span><span class="pln">scrollTop</span><span class="pun">();</span></code></li><li class="L6"><code><span class="pln">    </span><span class="com">// 视窗还看到这个侧边栏？</span></code></li><li class="L7"><code><span class="pln">    </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">offset</span><span class="pun">.</span><span class="pln">top </span><span class="pun">&lt;</span><span class="pln"> scrollTop</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></code></li><li class="L8"><code><span class="pln">      </span><span class="com">// 没看到，添加 ".fixed"</span></code></li><li class="L9"><code><span class="pln">      $</span><span class="pun">(</span><span class="str">"aside"</span><span class="pun">).</span><span class="pln">addClass</span><span class="pun">(</span><span class="str">"fixed"</span><span class="pun">)</span></code></li><li class="L0"><code><span class="pln">    </span><span class="pun">}</span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></code></li><li class="L1"><code><span class="pln">      </span><span class="com">// 看到，不需要 ".fixed"</span></code></li><li class="L2"><code><span class="pln">      $</span><span class="pun">(</span><span class="str">"aside"</span><span class="pun">).</span><span class="pln">removeClass</span><span class="pun">(</span><span class="str">"fixed"</span><span class="pun">)</span></code></li><li class="L3"><code><span class="pln">    </span><span class="pun">}</span></code></li><li class="L4"><code><span class="pln">  </span><span class="pun">})</span></code></li><li class="L5"><code></code></li><li class="L6"><code><span class="pun">});</span></code></li></ol></pre>
+<p><strong>注意：</strong><br>
+1、演示基于 HTML5 模板，aside 相等于侧边栏<br>
+2、IE 1-8 不支持 HTML5 的标签，需要用到 Modernizr 或者 html5shiv（差别 2KB 左右）<br>
+3、如果不用 HTML5 的标签，不需要理会上面2条提示</p>
+<p><strong>其他方法：</strong><a href="http://css-tricks.com/4855-scrollfollow-sidebar/" target="_blank">CSS Tricks</a></p>
+<p>via <a href="http://stackoverflow.com/questions/5273453/using-jquery-to-keep-scrolling-object-within-visible-window" target="_blank">stackoverflow.com</a></p>
+          </div><!-- .entry-content -->
+    
+    <footer class="entry-meta">
+      This entry was posted in <a href="http://90du.es/category/web-design/" title="View all posts in 网页设计" rel="category tag">网页设计</a> and tagged <a href="http://90du.es/tag/jquery/" rel="tag">jQuery</a> on <a href="./滚动固定侧边栏 - 九十度_files/滚动固定侧边栏 - 九十度.htm" title="10:39 pm" rel="bookmark"><time class="entry-date updated" datetime="2011-08-02T22:39:00+00:00">Aug 2, 2011</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="http://90du.es/author/Galovia/" title="View all posts by Galovia" rel="author">Galovia</a></span></span>.            
+    </footer><!-- .entry-meta -->
+  </article><!-- #post -->
+    <nav class="nav-single">
+      <span class="nav-previous"><a href="http://90du.es/2011/07/20-awesome-cheatsheets-for-designer-developer/" rel="prev"><span class="meta-nav">←</span> 20个设计师和开发人员的小抄</a></span>
+      <span class="nav-next"><a href="http://90du.es/2011/08/text-gradient/" rel="next">CSS 字体渐变 <span class="meta-nav">→</span></a></span>
+    </nav><!-- .nav-single -->
+
+    
+<div id="comments" class="comments-area">
+      <h2 class="comments-title"><i class="icon-chat icon-large"></i> 
+      2 thoughts on “<span>滚动固定侧边栏</span>”    </h2>
+
+    <ol class="commentlist">
+        <li class="post pingback">
+    <p>Pingback: <a href="http://blog.wrinkle-design.com/%e9%82%8a%e6%ac%84%e9%a0%82%e5%88%b0%e6%89%8dfixed%e7%9a%84%e6%8a%80%e5%b7%a7/" rel="external nofollow" class="url">邊欄頂到才fixed的技巧 | 睿客設計技術筆記</a></p>
+  </li><!-- #comment-## -->
+  <li class="comment even thread-even depth-1" id="li-comment-375">
+    <article id="comment-375" class="comment-wrap">
+      <header class="comment-meta comment-author vcard">
+        <img alt="" src="./滚动固定侧边栏 - 九十度_files/778c2fa89acc7b6d0820e287155a6855" class="avatar avatar-32 photo" height="32" width="32"><cite class="fn" data-author="0">红酒网</cite>@<a href="http://90du.es/2011/08/scrollfixed-sidebar-with-jquery/comment-page-1/#comment-375"><time pubdate="" datetime="2011-08-09T23:36:42+00:00">Aug 9, 2011 at 11:36 pm</time></a>        <span class="reply">
+        <a class="comment-reply-link" href="http://90du.es/2011/08/scrollfixed-sidebar-with-jquery/?replytocom=375#respond" onclick="return addComment.moveForm(&quot;comment-375&quot;, &quot;375&quot;, &quot;respond&quot;, &quot;1118&quot;)"><i class="icon-reply-all"></i> Reply</a>        </span><!-- .reply -->
+      </header><!-- .comment-meta -->
+
+      
+      <section class="comment-content">
+        <p>学习了，谢谢楼主分享</p>
+              </section><!-- .comment-content -->
+
+    </article><!-- #comment-## -->
+
+  </li><!-- #comment-## -->
+    </ol><!-- .commentlist -->
+
+    
+  
+      <div id="respond">
+
+      <h3><i class="icon-comment icon-large"></i> Leave a comment      </h3>
+
+      
+      <form action="http://90du.es/wp-comments-post.php" method="post" id="commentform">
+
+                  <div class="comment-identity" style="display: none;">
+              <label for="author"><i class="icon-user"></i> Name (required)</label>
+              <input type="text" name="author" id="author" value="" size="22" tabindex="1" placeholder="90度读者 (required)" title="User name" required="">
+              <span>✔</span>
+              <br>
+              
+              <label for="email"><i class="icon-mail"></i> Email (required)</label>
+              <input type="email" name="email" id="email" value="" size="22" tabindex="2" spellcheck="false" placeholder="someone@90du.es (required)" title="your email address" required="" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}">
+              <span>✔</span>
+              <br>
+              
+              <label for="url"><i class="icon-globe"></i> Website (Optional)</label>
+              <input type="url" name="url" id="url" value="" size="22" tabindex="3" placeholder="http://yourwebsite.com (Optional)">
+          </div>
+
+        
+        <textarea name="comment" id="comment" tabindex="4" spellcheck="false" placeholder="Enter your comment here..." required=""></textarea>
+
+        <p>
+          <button name="submit" type="submit" id="submit" class="btn btn-3d" tabindex="5" style="display: none;">Submit Comment</button>
+          <span class="right cancel-reply"><a rel="nofollow" id="cancel-comment-reply-link" href="http://90du.es/2011/08/scrollfixed-sidebar-with-jquery/#respond" style="display:none;">Cancel reply</a></span>
+          <input type="hidden" name="comment_post_ID" value="1118" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+        </p>
+
+        <p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="8f4038c292"></p>
+      </form><!--comment form-->
+    
+      
+    </div><!-- #respond -->
+  
+  </div>  
+    </div><!-- #content -->
+  </section><!-- #primary -->
+<!-- start sidebar -->
+<aside id="secondary" class="widget-area" role="complementary">
+
+  <div class="widget widget-news">
+    <h3 class="widget-class">公告栏</h3>
+    <ul>
+  <li><span>2013/10/01 12:43</span><br>今天才发现，免费的 Cloudflare 用户是不能用自己的 SSL 证书……</li><li><span>2013/09/26 10:17</span><br>看这些人怎样使用 <a href="http://philipwalton.github.io/solved-by-flexbox/" title="Solved by Flexbox" target="_blank" rel="nofollow">flexbox </a>吧</li><li><span>2013/09/23 22:20</span><br>用 SPDY 感觉上有快了一些</li><li><span>2013/09/16 21:02</span><br>关于密码安全。密码长度30位左右，包含大小写字母，数字，符号。每隔3个月换一次。再碉一点的，用两步验证吧。</li>      <li><a href="http://90du.es/news/#comments">☆ 以往动态…</a></li>
+      <li><a href="http://90du.es/demo/" target="_blank" rel="nofollow">★ 演示中心</a></li>
+    </ul>
+  </div><!-- .widget-news -->
+
+  		<div id="recent-posts-5" class="widget widget_recent_entries">		<h3 class="widget-title">最新文章</h3>		<ul>
+					<li>
+				<a href="http://90du.es/2013/09/ssh-password-less-login/" title="使用 SSH 密钥登录">使用 SSH 密钥登录</a>
+						</li>
+					<li>
+				<a href="http://90du.es/2013/09/ios-7-color-swatches/" title="iOS7 色板">iOS7 色板</a>
+						</li>
+					<li>
+				<a href="http://90du.es/2013/09/equivalent-of-jquery-toggle-event/" title="使用 dataset 模拟 jQuery toggle event">使用 dataset 模拟 jQuery toggle event</a>
+						</li>
+					<li>
+				<a href="http://90du.es/2013/09/sublime-autoprefixer/" title="Sublime Text 插件 autoprefixer">Sublime Text 插件 autoprefixer</a>
+						</li>
+					<li>
+				<a href="http://90du.es/2013/06/ie-10-specific-styles/" title="IE 10 的条件注释">IE 10 的条件注释</a>
+						</li>
+					<li>
+				<a href="http://90du.es/2013/06/ladda/" title="Ladda - 进度条按钮">Ladda - 进度条按钮</a>
+						</li>
+				</ul>
+		</div><div id="nav_menu-2" class="widget widget_nav_menu"><h3 class="widget-title">站内链接</h3><div class="menu-footer-links-container"><ul id="menu-footer-links" class="menu"><li id="menu-item-1558" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1558"><a href="http://90du.es/news/#comments">公告栏</a></li>
+<li id="menu-item-1557" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1557"><a target="_blank" href="http://90du.es/demo/">演示中心</a></li>
+<li id="menu-item-1559" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1559"><a target="_blank" href="http://90du.es/wiki/doku.php?id=start">维基</a></li>
+<li id="menu-item-1561" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1561"><a href="http://90du.es/license/">版权</a></li>
+<li id="menu-item-1562" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1562"><a href="http://90du.es/contact/">联系我们</a></li>
+</ul></div></div><div id="top-posts-2" class="widget widget_top-posts"><h3 class="widget-title">Popular Posts</h3><ul><li><a href="http://90du.es/2011/06/transparent-css-gradient/" class="bump-view" data-bump-view="tp">半透明 CSS 渐变</a></li>
+<li><a href="http://90du.es/2012/02/about-no-js/" class="bump-view" data-bump-view="tp">关于使用 no-js</a></li>
+<li><a href="http://90du.es/2012/08/zeptojs/" class="bump-view" data-bump-view="tp">Zepto.js 手机版的 jQuery</a></li>
+</ul></div>
+</aside><!-- end sidebar -->
+  </div><!-- #main -->
+
+<footer class="site-footer">
+  <div class="inner">
+    <div class="footer-widget">
+      <div class="span">
+        <h3><i class="icon-calendar"></i> Archives</h3>
+        <ul class="unstyled">
+          	<li><a href="http://90du.es/2013/09/" title="September 2013">September 2013</a></li>
+	<li><a href="http://90du.es/2013/06/" title="June 2013">June 2013</a></li>
+	<li><a href="http://90du.es/2013/04/" title="April 2013">April 2013</a></li>
+	<li><a href="http://90du.es/2013/03/" title="March 2013">March 2013</a></li>
+	<li><a href="http://90du.es/2013/01/" title="January 2013">January 2013</a></li>
+	<li><a href="http://90du.es/2012/12/" title="December 2012">December 2012</a></li>
+        </ul>
+      </div>
+
+      <div class="span">
+        <h3><i class="icon-archive"></i> Categories</h3>
+        <ul class="unstyled">
+          	<li class="cat-item cat-item-3"><a href="http://90du.es/category/wordpress-blog/" title="View all posts filed under WP 博客">WP 博客</a>
+</li>
+	<li class="cat-item cat-item-12"><a href="http://90du.es/category/technology/" title="View all posts filed under 时尚科技">时尚科技</a>
+</li>
+	<li class="cat-item cat-item-181"><a href="http://90du.es/category/game-entertainment/" title="View all posts filed under 游戏娱乐">游戏娱乐</a>
+</li>
+	<li class="cat-item cat-item-19"><a href="http://90du.es/category/share/" title="View all posts filed under 网络分享">网络分享</a>
+</li>
+	<li class="cat-item cat-item-29"><a href="http://90du.es/category/web-design/" title="View all posts filed under 网页设计">网页设计</a>
+</li>
+	<li class="cat-item cat-item-20"><a href="http://90du.es/category/after-effects/" title="View all posts filed under 视频后期制作">视频后期制作</a>
+</li>
+        </ul>
+      </div>
+      <div class="span">
+  <h3><i class="icon-trophy"></i> Most Popular</h3>
+  <ul class="unstyled">
+    <li><a href="http://90du.es/2012/07/media-queries-settings-for-my-theme/" rel="bookmark">关于主题的 Media Queries</a></li>
+    <li><a href="http://90du.es/2011/02/add-copyright-info-to-your-post/" rel="bookmark">替Philna2主题添加版权申明</a></li>
+    <li><a href="http://90du.es/2011/01/yourls/" rel="bookmark">YOURLS 短网址系统</a></li>
+    <li><a href="http://90du.es/2012/02/wordpress-theme-180-degree/" rel="bookmark">新主题：180度</a></li>
+    <li><a href="http://90du.es/2010/12/speed-up-your-blog-using-plugins/" rel="bookmark">优化博客之 – 插件篇</a></li>
+    <li><a href="http://90du.es/2011/05/dirt-3/" rel="bookmark">Dirt 3</a></li>
+    </ul>
+</div>
+<div class="span">
+  <h3><i class="icon-share"></i> Related Posts</h3>
+  <ul class="unstyled">
+        <li><a href="http://90du.es/2013/09/equivalent-of-jquery-toggle-event/">使用 dataset 模拟 jQuery toggle event</a></li>
+        <li><a href="http://90du.es/2012/08/zeptojs/">Zepto.js 手机版的 jQuery</a></li>
+        <li><a href="http://90du.es/2011/10/jquery-animate-backgroundcolor/">jQuery 动画：背景颜色</a></li>
+        <li><a href="http://90du.es/2011/07/20-awesome-cheatsheets-for-designer-developer/">20个设计师和开发人员的小抄</a></li>
+        <li><a href="http://90du.es/2011/07/css-animation-to-jquery-animation/">用 jQuery 实现一些 CSS 动画</a></li>
+        <li><a href="http://90du.es/2011/02/guoy-in/">过瘾的新衣</a></li>
+      </ul>
+</div>
+    </div>
+
+    <div class="site-info clear">
+      <p>©2010-2013 九十度. Proudly powered by <a href="http://wordpress.org/" title="WordPress.org" rel="generator">WordPress</a>.</p>
+      <p>60 queries (0.605 seconds)</p>
+    </div>
+    <a href="http://90du.es/2011/08/scrollfixed-sidebar-with-jquery/#top" id="gotop" rel="nofollow" title="Back to Top"><i class="icon-up-circled"></i>Back to Top</a><!-- #gotop -->
+  </div>
+</footer>
+
+<script src="./滚动固定侧边栏 - 九十度_files/script.1374986727.js"></script>
+<script type="text/javascript" src="./滚动固定侧边栏 - 九十度_files/devicepx-jetpack.js"></script>
+
+	<script src="./滚动固定侧边栏 - 九十度_files/e-201340.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	st_go({v:'ext',j:'1:2.5',blog:'40661446',post:'1118',tz:'-4'});
+	var load_cmc = function(){linktracker_init(40661446,1118,2);};
+	if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+	else load_cmc();
+	</script><img id="wpstats" src="./滚动固定侧边栏 - 九十度_files/g.gif" alt="">
+
+<script>var pkBaseURL = (("https:" == document.location.protocol) ? "https://track.wdt.im/" : "http://track.wdt.im/");document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));</script><script src="./滚动固定侧边栏 - 九十度_files/piwik.js" type="text/javascript"></script><script>try {var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);piwikTracker.trackPageView();piwikTracker.enableLinkTracking();} catch( err ) {}</script><noscript>&lt;p&gt;&lt;img src="http://track.wdt.im/piwik.php?idsite=1" style="border:0" alt="" /&gt;&lt;/p&gt;</noscript>
+<script>var _gaq=[["_setAccount","UA-4755599-6"],["_trackPageview"]];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";s.parentNode.insertBefore(g,s)})(document,"script");</script> 
+
+</body></html>

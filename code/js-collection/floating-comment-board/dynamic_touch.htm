@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0064)file:///C:/Users/alex/Downloads/%E6%BB%91%E5%8A%A8%E9%97%A8.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=GBK">
+
+<title>DIV+CSS仿网易的滑动门技术AJAX</title>
+<style type="text/css">
+<!--
+#header {
+background-color: #F8F4EF;
+height: 200px;
+width: 400px;
+margin: 0px;
+padding: 0px;
+border: 1px solid #ECE1D5;
+font-family: "宋体";
+font-size: 12px;
+}
+.menu {
+margin: 0px;
+padding: 0px;
+list-style-type: none;
+}
+.menu li {
+display: block;
+width: 100px;
+text-align: center;
+float: left;
+margin: 0px;
+padding-top: 0.2em;
+padding-right: 0px;
+padding-bottom: 0.2em;
+padding-left: 0px;
+cursor: hand;
+}
+.sec1 { background-color: #FFFFCC;}
+.sec2 { background-color: #00CCFF;}
+.block { display: block;}
+.unblock { display: none;}
+-->
+</style>
+</head>
+<body>  
+<script language="javascript">
+function secBoard(a,b,c)
+{
+var menu=document.getElementById(b).getElementsByTagName("li");
+var main=document.getElementById(c).getElementsByTagName("li");
+for(i=0;i<menu.length;i++)
+menu[i].className="sec1";
+menu[a].className="sec2";
+for(i=0;i<main.length;i++)
+main[i].style.display="none";
+main[a].style.display="block";
+}
+</script>
+<div id="header">
+  <ul class="menu" id="menu1">
+    <li onmouseover="secBoard(0,&#39;menu1&#39;,&#39;main1&#39;)" class="sec2">最新新闻</li>
+    <li onmouseover="secBoard(1,&#39;menu1&#39;,&#39;main1&#39;)" class="sec1">最新文章</li>
+    <li onmouseover="secBoard(2,&#39;menu1&#39;,&#39;main1&#39;)" class="sec1">最新日志</li>
+    <li onmouseover="secBoard(3,&#39;menu1&#39;,&#39;main1&#39;)" class="sec1">论坛新帖</li>
+  </ul>
+  <!--内容显示区域-->
+  <ul id="main1">
+    <li class="block">第一个内容,<a href="http://js.alixixi.com/">欢迎访问阿里西西特效频道</a></li>
+    <li class="unblock">第二个内容,<a href="http://js.alixixi.com/">欢迎访问阿里西西特效频道</a></li>
+    <li class="unblock">第三个内容,<a href="http://js.alixixi.com/">欢迎访问阿里西西特效频道</a></li>
+    <li class="unblock">第四个内容,<a href="http://js.alixixi.com/">欢迎访问阿里西西特效频道</a></li>
+  </ul>
+  <!--内容显示区域-->
+</div>
+<div id="header">
+  <ul class="menu" id="menu2">
+    <li onmouseover="secBoard(0,&#39;menu2&#39;,&#39;main2&#39;)" class="sec2">最新新闻</li>
+    <li onmouseover="secBoard(1,&#39;menu2&#39;,&#39;main2&#39;)" class="sec1">最新文章</li>
+    <li onmouseover="secBoard(2,&#39;menu2&#39;,&#39;main2&#39;)" class="sec1">最新日志</li>
+    <li onmouseover="secBoard(3,&#39;menu2&#39;,&#39;main2&#39;)" class="sec1">论坛新帖</li>
+  </ul>
+  <!--内容显示区域-->
+  <ul id="main2">
+    <li class="block" style="display: block;">第一个内容,<a href="http://js.alixixi.com/">欢迎访问阿里西西特效频道</a></li>
+    <li class="unblock" style="display: none;">第二个内容,<a href="http://js.alixixi.com/">欢迎访问阿里西西特效频道</a></li>
+    <li class="unblock" style="display: none;">第三个内容,<a href="http://js.alixixi.com/">欢迎访问阿里西西特效频道</a></li>
+    <li class="unblock" style="display: none;">第四个内容,<a href="http://js.alixixi.com/">欢迎访问阿里西西特效频道</a></li>
+  </ul>
+  <!--内容显示区域-->
+</div>
+
+
+<a href="http://js.alixixi.com/">欢迎访问阿里西西网页特效代码站，js.alixixi.com</a>  
+</body></html>
