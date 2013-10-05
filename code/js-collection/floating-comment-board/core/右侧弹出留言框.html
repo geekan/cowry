@@ -25,7 +25,7 @@ ol,ul,li{list-style:none}
 
 /*aSlide_tools*/
 #right_float{position: fixed; right: 0; top: 200px; z-index:999; _overflow-x:hidden;}
-#commentBoard{width: 500px; position: relative; height: 200px; right: -420px; line-height: 50px;border:1px solid #e0e0e0;border-right:0px;margin-top:-1px; background:#fff;}
+#commentBoard{width: 500px; position: relative; height: 200px; right: -320px; line-height: 50px;border:1px solid #e0e0e0;border-right:0px;margin-top:-1px; background:#fff;}
 
 </style>
 <div>
@@ -68,19 +68,10 @@ ol,ul,li{list-style:none}
 		</script>
 	</div></div>
 <script type="text/javascript">
-	var isIE6 = !!window.ActiveXObject&&!window.XMLHttpRequest;
-	$("#commentBoard").hover(function(){
-	$(this).stop().animate({"right": "0px"},400);
-	},function(){
-	$(this).stop().animate({"right": "-420px"},200);
+	$("#commentBoard").click(
+	function(){
+		$("#commentBoard").animate({left: "420px", height: '+=150px'});
 	});
-	if(isIE6){
-	$("#right_float").css("position","absolute");
-	setInterval(function(){
-	var _top = document.body.scrollTop || document.documentElement.scrollTop;
-	$("#right_float").animate({"top": 200+_top+"px"},200);
-	},1000);
-	};
 </script>
 </div>
 
