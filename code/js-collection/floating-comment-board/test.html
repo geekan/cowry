@@ -1,54 +1,96 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=GBK">
-<title>(jquery)右边折叠菜单点击展开兼容火狐、IE6</title>
-<meta name="keywords" content="jquery特效,JS代码,js特效代码大全,导航菜单代码,焦点幻灯片,企业网页设计欣赏" />
-<meta name="description" content="懒人建站为您提供-基于jquery特效，jquery弹出层效果，js特效代码大全，JS广告代码，导航菜单代码，下拉菜单代码和jquery焦点图片代码。" />
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-	
-	$('#righteject strong').toggle(
-	  function () {
-		 $(this).addClass("rightejectthis").next("div").animate({width: '+300px'}, "100");
-	  },
-	  function () {
-		$(this).removeClass("rightejectthis").next("div").animate({width: '-300px'}, "100");
-	  }
-	);
-	/*下面这一句只是为了让标题中的文本垂直居中，如果你使用图片做tit或者你知道span的高度，你可以删除它，在.rightejecttit span写上margin-top:span高度的一半*/
-	$('#righteject strong span').css("margin-top",-$('#righteject strong span').height()*0.5);
+<title>jquery 右侧弹出评论栏</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 
-});
-</script>
-<style>
-#righteject{ position:fixed; top:200px; right:0px; z-index:900000000;
-_position:absolute;/*兼容IE6*/
-/*_top: expression(offsetParent.scrollTop+document.documentElement.clientHeight-this.offsetHeight);始终位于底部*/
-_top: expression(documentElement.scrollTop+200);}/*兼容IE6*/
-*html{background-image:url(about:blank);background-attachment:fixed;}
-.rightejecttit{ width:30px; height:200px; text-align:center;display:block; float:left; cursor:pointer;
-background-color:#000; color:#FFF; }
-.rightejectcon{ width:0px; height:200px; overflow:hidden; float:left;
-background-color:#CCC; }
-.rightejecttit span{ position:relative; top:50%;display:block;z-index:910000000;}
-.rightejectthis{ background-color:#930;}
+<style type="text/css">
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,table,th,td,section,article,aside,header,footer,nav,dialog,figure{margin:0;padding:0}
+body,button,input,select,textarea{font:12px/1.5 "Microsoft YaHei", "\5B8B\4F53",Tahoma, Geneva, sans-serif;color:#333}
+html{zoom:expression(function(ele){ele.style.zoom = "1";document.execCommand("BackgroundImageCache", false, true);})(this);}
+body{ background:#FFF;}
+section,article,aside,header,footer,nav,dialog,figure{display:block}
+table{border-collapse:collapse;border-spacing:0}
+fieldset,img{border:0} 
+address,caption,cite,code,dfn,em,b,th,var,i{font-weight:normal;font-style:normal}
+code,kbd,pre,samp{font-family:courier new,courier,monospace}
+ol,ul,li{list-style:none} 
+.clear{overflow:hidden;clear:both}
+.clearfix:after{clear:both;overflow:hidden;content:"."}
+.cf:before, .cf:after {content:"";display:table;}
+.cf:after {clear:both;}
+.cf {zoom:1;}
+
+#showMsg{
+  background: #FFFFAD;
+  height: 350px;
+  width: inherit;
+  text-align: justify;
+}
+
+/*aSlide_tools*/
+#right_float{position: fixed; right: 0; top: 200px; z-index:999; _overflow-x:hidden;}
+#commentBoard{width: 500px; position: relative; height: 400px; right: -500px; line-height: 25px;border:1px solid #000000; border-right:0px;margin-top:-1px; background:#fff;}
+
+#boardLeft{
+position:absolute;top:40%;left:-31px;width:30px;border:0px solid #e0e0e0;background:#FFF000;font-size:20px;line-height:50px;text-align:center;
+}
+
+#boardDesc{height:100px;}
+#boardButton{height:50px;background:#AAAAAA;}
+
 </style>
 </head>
-
 <body>
-<p style="height:2000px;"></p>
 
-<!--右边折叠菜单html代码--->
-<div id="righteject">
-	<strong class="rightejecttit"><span>右边折叠标题</span></strong>
-    <div class="rightejectcon">
-    	右边折叠	
-    </div>
-</div>
+	<div id="right_float">
+	<!-- <a id="float1" href="#" target="_blank"></a> -->
+	<!-- <span><a href="#" target="_blank">会员服务</a></span> -->
+	
+	<div id="commentBoard">
+		<div id="boardLeft">
+			<div id="boardDesc">图草</div>
+			<div id="boardButton"><</div>
+		</div>
+		<div id="showMsg"></div>
+		<p> 用户名: <input type="text" id="text" name="text"> 密码: <input type="text" id="text" name="text"> </p>
+		请输入留言:<input type="text" id="text" name="text">
+		<input type="button" id="send" name="send" value="发送">
+		<input type="button" id="remove" name="remove" value="删除">
+		<script type="text/javascript">
+			function showMsg(){
+			var oText = document.getElementById("text");
 
+			var pNode  = document.createElement("p");
+			var tNode  = document.createTextNode(oText.value);
+			  pNode.appendChild(tNode);
+			var dContent = document.getElementById("showMsg");
+			dContent.insertBefore(pNode,dContent.firstChild);
+			oText.value='';
+			}
 
+			function removeMsg(){
+			   var oDiv = document.getElementById("showMsg");
+			 var oP = document.getElementsByTagName("p");
+			 oDiv.removeChild(oP[0]);
+			}
+			document.getElementById("send").onclick=showMsg;
+			document.getElementById("remove").onclick=removeMsg;
+		</script>
+	</div></div>
+
+	<script type="text/javascript">
+	$(document).ready(function(){
+	  $("#boardButton").toggle(function(){
+		$("#commentBoard").animate({right:'0px'});
+		$(this).html(">");
+	  },function(){
+		$("#commentBoard").animate({right:'-500px'});
+		$(this).html("<");
+	  });
+	});
+	</script>
 
 </body>
 </html>
