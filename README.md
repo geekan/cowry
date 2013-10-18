@@ -1,3 +1,7 @@
-[![endorse](http://api.coderwall.com/geekan/endorsecount.png)](http://coderwall.com/geekan)
-#GEEK AN
-##test.
+##plan
+
+* migration of wamp: wordpress and mediawiki
+* write a simple http proxy
+* implement the wellaway
+* read redis
+* read django
