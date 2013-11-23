@@ -1,12 +1,12 @@
 
-Title: CÏÝÚåÓëÈ±ÏÝ - ±Ê¼Ç
+Title: Cé™·é˜±ä¸Žç¼ºé™· - ç¬”è®°
 Email: ether.wcl@gmail.com
 ------------------
 
-1. ÄÑÒÔ¼òµ¥debug³öµÄ´íÎó  
-×¢ÒâÔËËã·ûÁ½ÅÔÒª¿Õ¸ñ, ·ñÔò»áÔì³ÉÆçÒå.  
+1. éš¾ä»¥ç®€å•debugå‡ºçš„é”™è¯¯  
+æ³¨æ„è¿ç®—ç¬¦ä¸¤æ—è¦ç©ºæ ¼, å¦åˆ™ä¼šé€ æˆæ­§ä¹‰.  
 `y = x/*p /* p points at the divisor */;`
-ÔÚÀÏ°æ±¾µÄC´úÂëÖÐ, ÏÂÃæÕâ¾äµÈÍ¬ÓÚ `a-=1`
+åœ¨è€ç‰ˆæœ¬çš„Cä»£ç ä¸­, ä¸‹é¢è¿™å¥ç­‰åŒäºŽ `a-=1`
 `a=-1;`
 
 
