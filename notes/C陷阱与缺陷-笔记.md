@@ -19,19 +19,80 @@ Email: ether.wcl@gmail.com
 
 * a---b 与 a -- - b 的含义相同，而与  a - -- b 的含义不同。
 
+2.1. 理解函数声明
 
 
+2.2. 运算符的优先级问题
 
+`*p++`的含义？
 
+单目运算符, 从右至左结合
 
+`c = getc(in) != EOF`
 
+赋值运算符优先级很低，仅高于逗号运算符
 
+6.3.
+`#define assert(e) if(!(e)) assert_error(__FILE_,_LINE_)`
+则对以下代码
+```
+if(x>0 && y>0) 
+    assert(x>y);
+else
+    assert(y>x);
+```
+展开后得到，
+```
+if(x>0 && y>0) 
+    if(!(x>y)) assert_error("foo.c",37);
+else
+    if(!(y>x)) assert_error("foo.c",39);
+```
+注意到，else并不是与第一个if 匹配，这与我们的期望不符。解决办法是，将宏assert定义为一个表达式而不是一个语句：
+`#define assert(e) ((void)((e)||_assert_error(_FIL_,_LINE_)))`
 
+3. 少敲一个分号
+```
+if (x[i] > big);
+    big = x[i]
+```
 
+```
+if (n < 3)
+    return
+logrec.time = x[0];
+```
 
+```
+    struct {
+        int date;
+        int time;
+    }
 
+    int main(void)
+    {
+        return 0;
+    }
+```
 
+4. 不同区间
 
+if (x == 0)
+    dosth(); error();
+else {
+    ...
+}
+
+5. what happend?
+```
+int i, a[10];
+for (i = 1; i <= 10; i++)
+    a[i] = 0;
+```
+
+死循环，为什么
+
+6.
 
 
 
