@@ -1,6 +1,6 @@
 
-Title: C陷阱与缺陷 - 笔记
 Email: ether.wcl@gmail.com
+Title: C陷阱与缺陷 - 笔记
 ------------------
 
 1. 词法陷阱
