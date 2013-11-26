@@ -92,10 +92,17 @@ for (i = 1; i <= 10; i++)
 
 死循环，为什么
 
-6.
+6. 分号问题
 
-
-
+```
+    #define assert(e) \
+        {if (!e) assert_error(__FILE__, __LINE__);}
+```
+正确定义
+```
+    #define assert(e) \
+        (void((e) || assert_error(__FILE__, __LINE__)))
+```
 
 
 
