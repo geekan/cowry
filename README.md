@@ -3,5 +3,5 @@
 #####IN PROGRESS
 
 1. Design pattern
-2. Java
+2. C++
 3. JavaScript
