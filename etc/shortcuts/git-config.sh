@@ -1,4 +1,3 @@
-
 git config --global color.ui always
 # alias for shortcuts in git
 git config --global alias.co checkout
@@ -16,3 +15,7 @@ alias gb='git branch '
 alias gc='git commit'
 alias gd='git diff'
 alias go='git checkout '
+alias gl='git log '
+alias gpl='git pull --rebase'
+alias gps='git push'
+alias ls='ls --show-control-chars --color=auto'
