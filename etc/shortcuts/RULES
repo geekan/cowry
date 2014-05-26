@@ -20,3 +20,4 @@ alias gpl='git pull --rebase'
 alias gps='git push'
 # MAC cannot use something below
 # alias ls='ls --show-control-chars --color=auto'
+alias ls='ls -G'
