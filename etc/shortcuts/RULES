@@ -18,4 +18,5 @@ alias go='git checkout '
 alias gl='git log '
 alias gpl='git pull --rebase'
 alias gps='git push'
-alias ls='ls --show-control-chars --color=auto'
+# MAC cannot use something below
+# alias ls='ls --show-control-chars --color=auto'
