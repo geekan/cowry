@@ -1,4 +1,5 @@
-touch ~/.bashrc
+# touch ~/.bashrc
 cat rules/* > ~/.bashrc.alexanderwu
-grep alexanderwu ~/.bashrc || echo "source ~/.bashrc.alexanderwu" > ~/.bashrc
+grep bashrc ~/.bash_profile || echo '[ -r ~/.bashrc ] && source ~/.bashrc' >> ~/.bash_profile
+grep alexanderwu ~/.bashrc || echo "source ~/.bashrc.alexanderwu" >> ~/.bashrc
 source ~/.bashrc
