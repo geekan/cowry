@@ -5,7 +5,8 @@
 #######
 # MAC #
 #######
-cat alias.rules/* > ~/.bashrc.alexanderwu
-grep bashrc ~/.bash_profile || echo '[ -r ~/.bashrc ] && source ~/.bashrc' >> ~/.bash_profile
-grep alexanderwu ~/.bashrc || echo "source ~/.bashrc.alexanderwu" >> ~/.bashrc
-source ~/.bashrc
+# cat alias.rules/* > ~/.bashrc.alexanderwu
+# grep bashrc ~/.bash_profile || echo '[ -r ~/.bashrc ] && source ~/.bashrc' >> ~/.bash_profile
+# grep alexanderwu ~/.bashrc || echo "source ~/.bashrc.alexanderwu" >> ~/.bashrc
+# source ~/.bashrc
+curl -L http://install.ohmyz.sh | sh
