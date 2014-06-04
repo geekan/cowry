@@ -1,1 +1,1 @@
-alias pip='pip install -i http://pypi.douban.com/simple'
+alias pin='pip install -i http://pypi.douban.com/simple'
