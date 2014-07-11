@@ -1,0 +1,3 @@
+在LINUX下的字符编码经常很难搞，一般来说，设置terminal的编码为UTF8就能解决大多数问题。
+但有时候LINUX框架输出的编码并非UTF8，比如GB2312，这时就需要把terminal和LINUX locale都设置成GB2312，才能正常显示。
+可以在.bashrc里加export LANG="zh_CN.GB2312"
