@@ -7,7 +7,7 @@
 * chart.js
 * flot.js
 
-###Software
+###Software for development
 
 * winscp
-* source insight(?)
+* source insight (old and strong)
