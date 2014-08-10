@@ -7,11 +7,11 @@
 #define FIRST_HELPER(first, ...) first
 
 /*
- *  * if there's only one argument, expands to nothing.  if there is more
- *   * than one argument, expands to a comma followed by everything but
- *    * the first argument.  only supports up to 9 arguments but can be
- *     * trivially expanded.
- *      */
+ * if there's only one argument, expands to nothing.  if there is more
+ * than one argument, expands to a comma followed by everything but
+ * the first argument.  only supports up to 9 arguments but can be
+ * trivially expanded.
+ */
 #define REST(...) REST_HELPER(NUM(__VA_ARGS__), __VA_ARGS__)
 #define REST_HELPER(qty, ...) REST_HELPER2(qty, __VA_ARGS__)
 #define REST_HELPER2(qty, ...) REST_HELPER_##qty(__VA_ARGS__)
