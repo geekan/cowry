@@ -1,5 +1,7 @@
 #include <stdio.h>
+
 #define UINT_SIZE (sizeof(unsigned int) * 8)
+
 #define BITMAP_OFFSET(BITMAP, OFFSET) (BITMAP[OFFSET/UINT_SIZE] & (1 << (OFFSET % UINT_SIZE)))
 #define BITMAP_IS_1(BITMAP, OFFSET) (BITMAP_OFFSET(BITMAP, OFFSET) >= 1)
 
