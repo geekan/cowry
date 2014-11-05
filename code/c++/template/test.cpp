@@ -5,6 +5,7 @@ using namespace std;
 
 namespace test {
 
+// 1. 类模板
 template <class T1, class T2>
 class testClass {
 private:
@@ -15,6 +16,7 @@ public:
     void show();
 };
 
+// 2. 函数模板
 template <class T> 
 T max(T a, T b)
 {
@@ -30,6 +32,13 @@ void testClass<T1, T2>::show()
     cout << I << "|" << J << endl;
 }
 
+// 3. 非类型模板参数
+template<typename T, int MAXSIZE>
+class Stack {
+    private:
+        T elems[MAXSIZE];
+};
+
 } // end for test namespace
 
 int main(void)
@@ -44,6 +53,7 @@ int main(void)
     test::testClass<int, double> class_id(13, 5.5);
     class_id.show();
 
+    test::Stack<int, 64> istack;
     return 0;
 }
 
