@@ -39,19 +39,19 @@ api = API(API_KEY, API_SECRET)
 # 人名及其脸部图片
 IMAGE_DIR = 'http://cn.faceplusplus.com/static/resources/python_demo/'
 PERSONS = [
-    ('Jim Parsons', (IMAGE_DIR + '1.jpg')),
-    ('Leonardo DiCaprio', (IMAGE_DIR + '2.jpg')),
-    ('Andy Liu', (IMAGE_DIR + '3.jpg')),
-    ('Jinping Xi', ('http://www.people.com.cn/mediafile/pic/20121115/5/6788593973819647089.jpg')),
-    ('Liyuan Peng', ('http://img2.cache.netease.com/lady/2013/3/27/20130327005229a7fad.jpg')),
-    ('Zuying Song', ('http://pic2.nipic.com/20090415/1562745_075745022_2.jpg')),
+    #('Jim Parsons', (IMAGE_DIR + '1.jpg', )),
+    #('Leonardo DiCaprio', (IMAGE_DIR + '2.jpg', )),
+    ('Andy Liu', (IMAGE_DIR + '3.jpg', )),
+    #('Jinping Xi', ('http://www.people.com.cn/mediafile/pic/20121115/5/6788593973819647089.jpg', )),
+    ('Liyuan Peng', ('http://img2.cache.netease.com/lady/2013/3/27/20130327005229a7fad.jpg', )),
+    #('Zuying Song', ('http://pic2.nipic.com/20090415/1562745_075745022_2.jpg', )),
     # ('Zuying Song', 'http://images.rednet.cn/articleimage/2013/03/07/1754244851.jpg'),
 ]
-TARGET_IMAGE = IMAGE_DIR + '4.jpg'
+# TARGET_IMAGE = IMAGE_DIR + '4.jpg'
 # TARGET_IMAGE = 'http://img.1ting.com/images/singer/s210_178.jpg' # Lihong Wang
-TARGET_IMAGE = 'http://www.chinesepress.com/uploads/allimg/140630/0U34H416-0.jpg' # Jinping Xi
+# TARGET_IMAGE = 'http://www.chinesepress.com/uploads/allimg/140630/0U34H416-0.jpg' # Jinping Xi
 TARGET_IMAGE = 'http://upload.wikimedia.org/wikipedia/commons/a/ae/Peng_Liyuan_A.jpg' # Liyuan Peng
-TARGET_IMAGE = 'http://ent.shangdu.com/2009/uploads/allimg/100112/11525W1R-6.jpg' # Zuying Song
+# TARGET_IMAGE = 'http://ent.shangdu.com/2009/uploads/allimg/100112/11525W1R-6.jpg' # Zuying Song
 
 # Step 1: Detect faces in the 3 pictures and find out their positions and
 # attributes
@@ -64,6 +64,7 @@ TARGET_IMAGE = 'http://ent.shangdu.com/2009/uploads/allimg/100112/11525W1R-6.jpg
 FACES = {}
 for name, urls in PERSONS:
     FACES[name] = []
+    #import pdb; pdb.set_trace()
     for url in urls:
         print name, urls
         FACES[name].append(api.detection.detect(url = url))
@@ -75,14 +76,18 @@ for name, faces in FACES.iteritems():
 # Step 2: create persons using the face_id
 # 步骤2：引用face_id，创建新的person
 for name, faces in FACES.iteritems():
+    # import pdb; pdb.set_trace()
     rst = api.person.create(
-            person_name = name, face_id = face['face'][:]['face_id'])
+        person_name = name, face_id = [face['face'][0]['face_id'] for face in faces[:]])
     print_result('create person {}'.format(name), rst)
 
 # Step 3: create a new group and add those persons in it
 # 步骤3：.创建Group，将之前创建的Person加入这个Group
-rst = api.group.create(group_name = 'test')
-print_result('create group', rst)
+try:
+    rst = api.group.create(group_name = 'test')
+    print_result('create group', rst)
+except:
+    pass
 rst = api.group.add_person(group_name = 'test', person_name = FACES.iterkeys())
 print_result('add these persons to group', rst)
 
