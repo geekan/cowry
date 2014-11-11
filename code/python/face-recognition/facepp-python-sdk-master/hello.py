@@ -39,12 +39,12 @@ api = API(API_KEY, API_SECRET)
 # 人名及其脸部图片
 IMAGE_DIR = 'http://cn.faceplusplus.com/static/resources/python_demo/'
 PERSONS = [
-    ('Jim Parsons', IMAGE_DIR + '1.jpg'),
-    ('Leonardo DiCaprio', IMAGE_DIR + '2.jpg'),
-    ('Andy Liu', IMAGE_DIR + '3.jpg'),
-    ('Jinping Xi', 'http://www.people.com.cn/mediafile/pic/20121115/5/6788593973819647089.jpg'),
-    ('Liyuan Peng', 'http://img2.cache.netease.com/lady/2013/3/27/20130327005229a7fad.jpg'),
-    ('Zuying Song', 'http://pic2.nipic.com/20090415/1562745_075745022_2.jpg'),
+    ('Jim Parsons', (IMAGE_DIR + '1.jpg')),
+    ('Leonardo DiCaprio', (IMAGE_DIR + '2.jpg')),
+    ('Andy Liu', (IMAGE_DIR + '3.jpg')),
+    ('Jinping Xi', ('http://www.people.com.cn/mediafile/pic/20121115/5/6788593973819647089.jpg')),
+    ('Liyuan Peng', ('http://img2.cache.netease.com/lady/2013/3/27/20130327005229a7fad.jpg')),
+    ('Zuying Song', ('http://pic2.nipic.com/20090415/1562745_075745022_2.jpg')),
     # ('Zuying Song', 'http://images.rednet.cn/articleimage/2013/03/07/1754244851.jpg'),
 ]
 TARGET_IMAGE = IMAGE_DIR + '4.jpg'
@@ -57,18 +57,26 @@ TARGET_IMAGE = 'http://ent.shangdu.com/2009/uploads/allimg/100112/11525W1R-6.jpg
 # attributes
 # 步骤1：检测出三张输入图片中的Face，找出图片中Face的位置及属性
 
-FACES = {name: api.detection.detect(url = url)
-        for name, url in PERSONS}
+# XXX
+#FACES = {name: api.detection.detect(url = url)
+#        for name, urls in PERSONS}
 
-for name, face in FACES.iteritems():
-    print_result(name, face)
+FACES = {}
+for name, urls in PERSONS:
+    FACES[name] = []
+    for url in urls:
+        print name, urls
+        FACES[name].append(api.detection.detect(url = url))
 
+for name, faces in FACES.iteritems():
+    for face in faces:
+        print_result(name, face)
 
 # Step 2: create persons using the face_id
 # 步骤2：引用face_id，创建新的person
-for name, face in FACES.iteritems():
+for name, faces in FACES.iteritems():
     rst = api.person.create(
-            person_name = name, face_id = face['face'][0]['face_id'])
+            person_name = name, face_id = face['face'][:]['face_id'])
     print_result('create person {}'.format(name), rst)
 
 # Step 3: create a new group and add those persons in it
