@@ -44,11 +44,14 @@ PERSONS = [
     ('Andy Liu', IMAGE_DIR + '3.jpg'),
     ('Jinping Xi', 'http://www.people.com.cn/mediafile/pic/20121115/5/6788593973819647089.jpg'),
     ('Liyuan Peng', 'http://img2.cache.netease.com/lady/2013/3/27/20130327005229a7fad.jpg'),
+    ('Zuying Song', 'http://pic2.nipic.com/20090415/1562745_075745022_2.jpg'),
+    # ('Zuying Song', 'http://images.rednet.cn/articleimage/2013/03/07/1754244851.jpg'),
 ]
 TARGET_IMAGE = IMAGE_DIR + '4.jpg'
 # TARGET_IMAGE = 'http://img.1ting.com/images/singer/s210_178.jpg' # Lihong Wang
 TARGET_IMAGE = 'http://www.chinesepress.com/uploads/allimg/140630/0U34H416-0.jpg' # Jinping Xi
 TARGET_IMAGE = 'http://upload.wikimedia.org/wikipedia/commons/a/ae/Peng_Liyuan_A.jpg' # Liyuan Peng
+TARGET_IMAGE = 'http://ent.shangdu.com/2009/uploads/allimg/100112/11525W1R-6.jpg' # Zuying Song
 
 # Step 1: Detect faces in the 3 pictures and find out their positions and
 # attributes
