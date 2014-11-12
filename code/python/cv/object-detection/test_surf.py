@@ -21,6 +21,7 @@ import sys
 
 def match_images(img1, img2):
     """Given two images, returns the matches"""
+    print 'start to match imgs'
     detector = cv2.SURF(400, 5, 5)
     matcher = cv2.BFMatcher(cv2.NORM_L2)
 
