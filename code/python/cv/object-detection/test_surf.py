@@ -41,8 +41,8 @@ def filter_matches(kp1, kp2, matches, ratio = 0.75):
             mkp2.append( kp2[m.trainIdx] )
     kp_pairs = zip(mkp1, mkp2)
     return kp_pairs
-    
-    
+
+
 ###############################################################################
 # Match Diplaying
 ###############################################################################
@@ -90,21 +90,21 @@ def explore_match(win, img1, img2, kp_pairs, status = None, H = None):
     cv2.imshow(win, vis)
 
 
-  
+
 def draw_matches(window_name, kp_pairs, img1, img2):
     """Draws the matches for """
     mkp1, mkp2 = zip(*kp_pairs)
-    
+
     p1 = numpy.float32([kp.pt for kp in mkp1])
     p2 = numpy.float32([kp.pt for kp in mkp2])
-    
+
     if len(kp_pairs) >= 4:
         H, status = cv2.findHomography(p1, p2, cv2.RANSAC, 5.0)
         #print '%d / %d  inliers/matched' % (numpy.sum(status), len(status))
     else:
         H, status = None, None
         #print '%d matches found, not enough for homography estimation' % len(p1)
-    
+
     if len(p1):
         explore_match(window_name, img1, img2, kp_pairs, status, H)
 
@@ -118,28 +118,28 @@ if __name__ == '__main__':
         print "No filenames specified"
         print "USAGE: find_obj.py <image1> <image2>"
         sys.exit(1)
-    
+
     fn1 = sys.argv[1]
     fn2 = sys.argv[2]
 
     img1 = cv2.imread(fn1, 0)
     img2 = cv2.imread(fn2, 0)
-    
+
     if img1 is None:
         print 'Failed to load fn1:', fn1
         sys.exit(1)
-        
+
     if img2 is None:
         print 'Failed to load fn2:', fn2
         sys.exit(1)
 
     kp_pairs = match_images(img1, img2)
-    
+
     if kp_pairs:
         draw_matches('find_obj', kp_pairs, img1, img2)
         cv2.waitKey()
-        cv2.destroyAllWindows()    
+        cv2.destroyAllWindows()
 else:
         print "No matches found"
-    
-    
+
+
