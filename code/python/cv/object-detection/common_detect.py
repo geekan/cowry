@@ -79,7 +79,7 @@ def plot_patch(det_name, colors, df, predictions_df):
 
 def detect_img(img_name):
     os.system("mkdir -p _temp")
-    os.system("echo `pwd`/$img_name > _temp/det_input.txt")
+    os.system("echo `pwd`/"+img_name+" > _temp/det_input.txt")
     os.system("echo `pwd`")
     os.system("../python/detect.py --crop_mode=selective_search \
       --pretrained_model=/Users/wuchenglin/git/caffe/models/bvlc_reference_rcnn_ilsvrc13/bvlc_reference_rcnn_ilsvrc13.caffemodel \
@@ -117,6 +117,7 @@ def detect_img(img_name):
         if i > 0:
             print "plot_patch", index, i, max_s.index[index]
             plot_patch(max_s.index[index], colors, df, predictions_df)
+            plt.savefig('out/'+img_name)
         else:
             break
     # plot_patch(plt, det_name, colors, df, predictions_df)
