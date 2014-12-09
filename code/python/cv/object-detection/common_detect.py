@@ -1,9 +1,10 @@
 # Modify the jpg input, take the result.
 
+import os
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-%matplotlib inline
+# %matplotlib inline
 
 def nms_detections(dets, overlap=0.3):
     """
@@ -77,13 +78,13 @@ def plot_patch(det_name, colors, df, predictions_df):
     print 'scores:', nms_dets[:len(colors), 4]
 
 def detect_img(img_name):
-    !mkdir -p _temp
-    !echo `pwd`/$img_name > _temp/det_input.txt
-    !echo `pwd`
-    !../python/detect.py --crop_mode=selective_search \
+    os.system("mkdir -p _temp")
+    os.system("echo `pwd`/$img_name > _temp/det_input.txt")
+    os.system("echo `pwd`")
+    os.system("../python/detect.py --crop_mode=selective_search \
       --pretrained_model=/Users/wuchenglin/git/caffe/models/bvlc_reference_rcnn_ilsvrc13/bvlc_reference_rcnn_ilsvrc13.caffemodel \
       --model_def=/Users/wuchenglin/git/caffe/models/bvlc_reference_rcnn_ilsvrc13/deploy.prototxt \
-      --raw_scale=255 _temp/det_input.txt _temp/det_output.h5 > detect.log 2>&1
+      --raw_scale=255 _temp/det_input.txt _temp/det_output.h5 > detect.log 2>&1")
 
     print('')
     df = pd.read_hdf('_temp/det_output.h5', 'df')
