@@ -58,15 +58,15 @@ def nms_detections(dets, overlap=0.3):
 
     return dets[pick, :]
 
-def plot_patch(det_name, colors, df, predictions_df):
+def plot_patch(fig, det_name, colors, df, predictions_df):
     scores = predictions_df[det_name]
     windows = df[['xmin', 'ymin', 'xmax', 'ymax']].values
     dets = np.hstack((windows, scores[:, np.newaxis]))
     nms_dets = nms_detections(dets)
 
-    currentAxis = plt.gca()
+    currentAxis = fig.gca()
     for c, det in zip(colors, nms_dets[:len(colors)]):
-        if det[4] < 0:
+        if det[4] < -0.5: #FIXME
             break
         plt.text(det[0], (det[3]-det[1])*10/10+det[1],
                  str(det[4])+'\n'+det_name,
@@ -77,14 +77,15 @@ def plot_patch(det_name, colors, df, predictions_df):
         )
     print 'scores:', nms_dets[:len(colors), 4]
 
-def detect_img(img_name):
+def detect_img(img_path):
+    img_name = img_path.split('/')[-1]
     os.system("mkdir -p _temp")
-    os.system("echo `pwd`/"+img_name+" > _temp/det_input.txt")
+    os.system("echo `pwd`/"+img_path+" > _temp/det_input.txt")
     os.system("echo `pwd`")
     os.system("../python/detect.py --crop_mode=selective_search \
       --pretrained_model=/Users/wuchenglin/git/caffe/models/bvlc_reference_rcnn_ilsvrc13/bvlc_reference_rcnn_ilsvrc13.caffemodel \
       --model_def=/Users/wuchenglin/git/caffe/models/bvlc_reference_rcnn_ilsvrc13/deploy.prototxt \
-      --raw_scale=255 _temp/det_input.txt _temp/det_output.h5 > detect.log 2>&1")
+      --raw_scale=255 _temp/det_input.txt _temp/det_output.h5 > log/"+img_path+".log 2>&1")
 
     print('')
     df = pd.read_hdf('_temp/det_output.h5', 'df')
@@ -109,23 +110,32 @@ def detect_img(img_name):
 
     det_name = max_s.index[0]
 
-    im = plt.imread(img_name)
+    fig = plt.figure()
+    im = plt.imread(img_path)
     plt.imshow(im)
     colors = ['r', 'b', 'y']
 
     for index, i in enumerate(max_s):
-        if i > 0:
+        if i > 0: # FIXME
             print "plot_patch", index, i, max_s.index[index]
-            plot_patch(max_s.index[index], colors, df, predictions_df)
-            plt.savefig('out/'+img_name)
+            plot_patch(fig, max_s.index[index], colors, df, predictions_df)
         else:
             break
-    # plot_patch(plt, det_name, colors, df, predictions_df)
+    fig.savefig('out/'+img_path)
+    plt.close(fig)
     return
 
 def main():
-    img_name = 'images/ilsvrc2011/1.n00004475_15899.2875184020_9944005d0d.jpg'
-    detect_img(img_name)
+    imgs = os.listdir('images/ilsvrc2011')
+    begin = True
+    for img in imgs:
+        if begin == True:
+            detect_img('images/ilsvrc2011/'+img)
+        if img == '1001.n00005787_11917.sygnatusacus.jpg':
+            begin = True
+
+    # img_path = 'images/ilsvrc2011/1.n00004475_15899.2875184020_9944005d0d.jpg'
+    # detect_img(img_path)
 
 if __name__ == '__main__':
     main()
