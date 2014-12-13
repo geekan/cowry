@@ -126,15 +126,15 @@ def detect_img(img_path):
     return
 
 def main():
-    imgs = os.listdir('images/ilsvrc2011')
+    imgs = os.listdir('10w/imgs')
     begin = True
     for img in imgs:
         if begin == True:
-            detect_img('images/ilsvrc2011/'+img)
+            detect_img('10w/imgs/'+img)
         if img == '1001.n00005787_11917.sygnatusacus.jpg':
             begin = True
 
-    # img_path = 'images/ilsvrc2011/1.n00004475_15899.2875184020_9944005d0d.jpg'
+    # img_path = '10w/imgs/1.n00004475_15899.2875184020_9944005d0d.jpg'
     # detect_img(img_path)
 
 if __name__ == '__main__':
