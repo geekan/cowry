@@ -1,0 +1,6 @@
+#!/bin/bash
+
+case $1 in
+    count* ) svn log | grep 'line' | awk -F'|' '{a[$2] += $4} END {for (i in a) {print i, a[i]}}';;
+    line* ) svn ls -R | egrep -v -e '\/$' | xargs svn blame | awk '{print $2}' | sort | uniq -c | sort -r;;
+esac
