@@ -1,0 +1,21 @@
+https://kb.meraki.com/knowledge_base/troubleshooting-client-vpn
+
+Error 809
+ 
+Example event log entries:
+None - Traffic does not reach MX.
+Possible causes and solutions:
+Client behind NAT devices
+Solution: Windows XP, Vista, 7, and Server 2008 do not support L2TP/IPsec connections when the Windows computer or VPN server are located behind a NAT. If the Windows VPN client fails with Error 809 when trying to establish a VPN connection to an MX located behind a NAT, add the "AssumeUDPEncapsulationContextOnSendRule" DWORD value to the Windows registry. This DWORD value allows Windows to establish security associations when both the VPN server and the Windows based VPN client computer are behind NAT devices.
+ 
+For Windows XP:
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\IPSec
+RegValue: AssumeUDPEncapsulationContextOnSendRule
+Type: DWORD
+Data Value: 2
+ 
+For Windows Vista, 7, and 2008 Server:
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PolicyAgent 
+RegValue: AssumeUDPEncapsulationContextOnSendRule
+Type: DWORD
+Data Value: 2
