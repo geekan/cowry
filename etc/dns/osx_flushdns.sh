@@ -1,0 +1,1 @@
+sudo discoveryutil mdnsflushcache;sudo discoveryutil udnsflushcaches
