@@ -1,0 +1,11 @@
+{
+   "manifest_version": 2,
+   "content_scripts": [ {
+      "all_frames": true,
+      "js": [ "reply.js" ],
+      "matches": [ "http://*/*", "https://*/*" ]
+   } ],
+   "description": "万能应付discuz隐藏帖",
+   "name": "自动回复（最简）",
+   "version": "0.1"
+}
