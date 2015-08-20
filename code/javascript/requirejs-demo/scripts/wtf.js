@@ -1,8 +1,8 @@
-　　define(['math'], function(math){
-　　　　function foo(){
-　　　　　　return math.add(1, 2);
-　　　　}
-　　　　return {
-　　　　　　add : foo
-　　　　};
-　　});
+define(['math'], function(math){
+    function foo(){
+        return math.add(1, 2);
+    }
+    return {
+        add : foo
+    };
+});
