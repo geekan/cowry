@@ -17,8 +17,8 @@ requirejs.config({
 // main.js
 require(['wtf', 'jquery'], function (math, $){
     var x = math.add(1,1);
-    // alert(x);
+    $('h1').text('jquery works!')
+
     console.log(x);
     console.log($);
 });
-
