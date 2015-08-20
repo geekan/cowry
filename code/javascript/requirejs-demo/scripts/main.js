@@ -1,7 +1,7 @@
 // main.js
 require(['wtf'], function (math){
-    math.add(1,1)
-    alert();
-    console.log();
+    var x = math.add(1,1);
+    alert(x);
+    console.log(x);
 });
 
