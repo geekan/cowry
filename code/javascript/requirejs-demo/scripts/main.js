@@ -1,4 +1,4 @@
 　　// main.js
-　　require(['mathWrapper'], function (math){
+　　require(['wtf'], function (math){
 　　　　alert(math.add(1,1));
 　　});
