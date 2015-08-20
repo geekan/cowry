@@ -1,6 +1,6 @@
 //
 requirejs.config({
-    baseUrl: 'js/lib',
+    // baseUrl: 'js/lib',
     paths: {
         // the left side is the module ID,
         // the right side is the path to
@@ -15,7 +15,7 @@ requirejs.config({
 });
 
 // main.js
-require(['wtf'], function (math){
+require(['wtf', 'jquery'], function (math, $){
     var x = math.add(1,1);
     // alert(x);
     console.log(x);
