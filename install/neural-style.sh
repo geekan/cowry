@@ -7,3 +7,7 @@ source ~/.zshrc
 
 sudo apt-get install libprotobuf-dev protobuf-compiler
 luarocks install loadcaffe
+
+cd /git/
+git clone https://github.com/jcjohnson/neural-style.git
+cd neural-style
