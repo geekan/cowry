@@ -1,14 +1,19 @@
-cd /git/
+
+set -e
+GITPATH=~/git
+
+cd $GITPATH
 curl -s https://raw.githubusercontent.com/torch/ezinstall/master/install-deps | bash
-git clone https://github.com/torch/distro.git /git/torch --recursive
-cd /git/torch; ./install.sh
+git clone https://github.com/torch/distro.git $GITPATH/torch --recursive
+cd $GITPATH/torch; ./install.sh
 
 source ~/.zshrc
 
+# compile and make install protobuf could do this trick.
 sudo apt-get install libprotobuf-dev protobuf-compiler
 luarocks install loadcaffe
 
-cd /git/
+cd $GITPATH
 git clone https://github.com/jcjohnson/neural-style.git
 cd neural-style
 
