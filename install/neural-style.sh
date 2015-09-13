@@ -3,10 +3,11 @@ set -e
 GITPATH=~/git
 
 cd $GITPATH
-curl -s https://raw.githubusercontent.com/torch/ezinstall/master/install-deps | bash
+curl -s https://raw.githubusercontent.com/torch/ezinstall/master/install-deps | bash # maybe you need sudo here
 git clone https://github.com/torch/distro.git $GITPATH/torch --recursive
 cd $GITPATH/torch; ./install.sh
 
+# If you use zsh..
 source ~/.zshrc
 
 # compile and make install protobuf could do this trick.
