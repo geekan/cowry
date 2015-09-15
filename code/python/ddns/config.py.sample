@@ -1,0 +1,9 @@
+
+target = 'name.domain.com'
+
+public_data = { 
+    'login_email': 'youremail',
+    'login_password': 'yourpass',
+    'format': 'json',
+    'error_on_empty': 'no',
+}
