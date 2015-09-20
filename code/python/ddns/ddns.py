@@ -59,7 +59,10 @@ def try_modify_record_if_ip_changed():
 
 def main():
     while 1:
-        try_modify_record_if_ip_changed()
+        try:
+            try_modify_record_if_ip_changed()
+        except:
+            print("exception.")
         time.sleep(30)
 
 if __name__ == '__main__':
