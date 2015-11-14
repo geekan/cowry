@@ -52,8 +52,9 @@ for file in files:
 bloblist = data
 
 print('for blob')
+#import pdb;pdb.set_trace()
 for blob in bloblist:
-    print(len(blob.words))
+    #print(len(blob.words))
     blob.words_count = build_words_count(blob)
     blob.words_len = len(blob.words)
 
@@ -62,8 +63,9 @@ for i, blob in enumerate(bloblist):
     #import pdb;pdb.set_trace()
     scores = {word: tfidf(word, blob, bloblist) for word in blob.words}
     sorted_words = sorted(scores.items(), key=lambda x: x[1], reverse=True)
-    for word, score in sorted_words[:30]:
-        print("Word: {}, TF-IDF: {}".format(word, round(score, 5)))
+    #for word, score in sorted_words[:30]:
+    #    print("{}: {}".format(word, round(score, 5)))
+    print(files[i], sorted_words[:20])
 
 
 
