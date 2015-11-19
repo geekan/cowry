@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 
 from __future__ import division
 
@@ -11,6 +12,9 @@ from textblob import TextBlob as tb
 
 
 import sys  
+import re
+import pdb
+
 
 reload(sys)  
 sys.setdefaultencoding('utf8')
@@ -45,8 +49,14 @@ files = filter(lambda x: x.endswith('txt'), files)
 data = []
 for file in files:
     with open (file, "r") as myfile:
-        d=myfile.read().replace('\n', '')
+        #d = myfile.read().replace('\n', '')
+        d = myfile.read()
         d = unicode(d, errors='ignore')
+        #pdb.set_trace()
+        #d = re.sub("^>.*?\n", "", d)
+        print(len(d))
+        d = re.sub(r"\n>[^\n]*", "\n", d)
+        print(len(d))
         data.append(tb(d))
 
 bloblist = data
