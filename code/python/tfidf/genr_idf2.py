@@ -54,14 +54,14 @@ for file in files:
         d = unicode(d, errors='ignore')
         #pdb.set_trace()
         #d = re.sub("^>.*?\n", "", d)
-        print(len(d))
+        #print(len(d))
         d = re.sub(r"\n>[^\n]*", "\n", d)
-        print(len(d))
+        #print(len(d))
         data.append(tb(d))
 
 bloblist = data
 
-print('for blob')
+print('calculating tf-idf, please wait..')
 #import pdb;pdb.set_trace()
 for blob in bloblist:
     #print(len(blob.words))
@@ -79,9 +79,8 @@ for i, blob in enumerate(bloblist):
 
 
 
-import pdb;pdb.set_trace()
+#import pdb;pdb.set_trace()
 
 
-print('exit')
 
 
