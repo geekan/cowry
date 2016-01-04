@@ -10,4 +10,7 @@
 ###Software for development
 
 * winscp
-* source insight (old and strong)
+* source insight (old and strong) (c/partly c++)
+* clion (c++)
+* eclipse (scala)
+* pycharm (python)
