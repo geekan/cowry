@@ -21,3 +21,5 @@
 ###benchmark for web server
 
 * siege 
+  * siege -g <url>
+  * siege -b -c1000 -t60S <url>
