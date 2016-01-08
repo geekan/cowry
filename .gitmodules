@@ -1,0 +1,3 @@
+[submodule "code/bash/perf/flamegraph"]
+	path = code/bash/perf/flamegraph
+	url = https://github.com/brendangregg/FlameGraph
