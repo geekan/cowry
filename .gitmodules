@@ -1,3 +1,6 @@
 [submodule "code/bash/perf/flamegraph"]
 	path = code/bash/perf/flamegraph
 	url = https://github.com/brendangregg/FlameGraph
+[submodule "resource/web-content-extraction/newspaper"]
+	path = resource/web-content-extraction/newspaper
+	url = https://github.com/codelucas/newspaper
