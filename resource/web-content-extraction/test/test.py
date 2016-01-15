@@ -1,6 +1,7 @@
 from newspaper import Article
 
 url = 'http://fox13now.com/2013/12/30/new-year-new-laws-obamacare-pot-guns-and-drones/'
+url = 'http://news.sina.com.cn/c/nd/2016-01-15/doc-ifxnrahr8355926.shtml'
 
 article = Article(url)
 article.download()
