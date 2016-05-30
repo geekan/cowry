@@ -5,13 +5,14 @@ import json
 import jieba
 import jieba.analyse
 import sys
+import os.path
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
 from gensim import corpora, models, similarities
 
-with open('/Users/wuchenglin/code/recsys/data/2016.5.4.url_info.csv', 'r') as f:
+with open(os.path.dirname(__file__) + 'url_info_small.csv', 'r') as f:
     reader = csv.reader(f)
     data = list(reader)
 
@@ -93,9 +94,10 @@ corpus = corpora.MmCorpus('/tmp/deerwester.mm')
 print("")
 
 tfidf = models.TfidfModel(corpus)
+
 vec = [(0, 1), (4, 1)]
 print(tfidf[vec])
 
-index = similarities.SparseMatrixSimilarity(tfidf[corpus], num_features=4286)
+index = similarities.SparseMatrixSimilarity(tfidf[corpus], num_features=len(tfidf.dfs))
 sims = index[tfidf[vec]]
 print(list(enumerate(sims)))
