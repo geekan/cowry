@@ -1,5 +1,6 @@
 
 config.py
+derby.log
 
 *.exe
 
