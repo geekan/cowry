@@ -12,7 +12,7 @@ sys.setdefaultencoding('utf-8')
 
 from gensim import corpora, models, similarities
 
-with open(os.path.dirname(__file__) + 'url_info_small.csv', 'r') as f:
+with open(os.path.dirname(__file__) + '/url_info_small.csv', 'r') as f:
     reader = csv.reader(f)
     data = list(reader)
 
